@@ -6,37 +6,42 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>xsabduuh — مطور مواقع</title>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
-<!-- prevent white flash before CSS loads -->
-<script>document.documentElement.style.background="#0c0c0c";</script>
+<!-- prevent white flash -->
+<script>document.documentElement.style.background="#0c0c0c"</script>
+<!-- disable Safari forced dark mode -->
+<meta name="color-scheme" content="light">
 <style>
+/* tell browser: DO NOT auto-invert colors */
+:root { color-scheme: light only; }
+
 /* ════════════════════════════════════════
-   DESIGN TOKENS
+DESIGN TOKENS
 ════════════════════════════════════════ */
 .dark {
-  --bg:       #0c0c0c;
-  --surf:     #141414;
-  --surf2:    #1e1e1e;
-  --line:     rgba(255,255,255,0.08);
-  --txt:      #f2f2f2;
-  --muted:    #888;
-  --faint:    #555;
-  --gold:     #c9a84c;
-  --gdim:     rgba(201,168,76,0.12);
-  --gline:    rgba(201,168,76,0.30);
-  --shadow:   0 8px 32px rgba(0,0,0,0.50);
+–bg:       #0c0c0c;
+–surf:     #141414;
+–surf2:    #1e1e1e;
+–line:     rgba(255,255,255,0.08);
+–txt:      #f2f2f2;
+–muted:    #999;
+–faint:    #555;
+–gold:     #c9a84c;
+–gdim:     rgba(201,168,76,0.12);
+–gline:    rgba(201,168,76,0.30);
+–shadow:   0 8px 32px rgba(0,0,0,0.50);
 }
 .light {
-  --bg:       #f5f1ea;
-  --surf:     #ffffff;
-  --surf2:    #ece8df;
-  --line:     rgba(0,0,0,0.09);
-  --txt:      #1a1410;
-  --muted:    #6b6256;
-  --faint:    #b0a898;
-  --gold:     #9a6f22;
-  --gdim:     rgba(154,111,34,0.10);
-  --gline:    rgba(154,111,34,0.35);
-  --shadow:   0 8px 32px rgba(0,0,0,0.08);
+–bg:       #f5f1ea;
+–surf:     #ffffff;
+–surf2:    #ece8df;
+–line:     rgba(0,0,0,0.09);
+–txt:      #1a1410;
+–muted:    #6b6256;
+–faint:    #b0a898;
+–gold:     #9a6f22;
+–gdim:     rgba(154,111,34,0.10);
+–gline:    rgba(154,111,34,0.35);
+–shadow:   0 8px 32px rgba(0,0,0,0.08);
 }
 
 /* ════════════════════════════════════════
@@ -46,9 +51,11 @@ RESET
 html { scroll-behavior:smooth; }
 body {
 font-family:“Tajawal”,sans-serif;
-background:var(–bg); color:var(–txt);
+background:var(–bg) !important;
+color:var(–txt) !important;
 transition:background .28s, color .28s;
 overflow-x:hidden;
+-webkit-text-size-adjust:100%;
 }
 a { text-decoration:none; color:inherit; }
 
@@ -59,7 +66,7 @@ nav {
 position:fixed; top:0; left:0; right:0; z-index:999;
 height:56px; padding:0 18px;
 display:flex; align-items:center; justify-content:space-between;
-background:var(–bg);
+background:var(–bg) !important;
 border-bottom:1px solid var(–line);
 transition:background .28s;
 }
@@ -133,6 +140,7 @@ animation:up .65s ease both;
 position:relative; z-index:2;
 font-size:clamp(32px,9vw,60px); font-weight:900; line-height:1.1;
 margin-bottom:14px;
+color:var(–txt) !important;
 animation:up .65s .1s ease both;
 }
 .hero h1 em { font-style:normal; color:var(–gold); }
