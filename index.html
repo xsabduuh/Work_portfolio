@@ -128,43 +128,46 @@ animation:gs 28s linear infinite;
 position:absolute; inset:0; pointer-events:none;
 background:radial-gradient(ellipse 65% 45% at 50% -5%, var(–gdim), transparent 65%);
 }
-.badge {
+/* hero tag line */
+.hero-tag {
 position:relative; z-index:2;
-display:inline-flex; align-items:center; gap:7px;
-border:1px solid var(–gold);
-background: rgba(201,168,76,0.15);
-padding:5px 14px; border-radius:99px;
 font-size:10px; font-weight:700; color:var(–gold);
-letter-spacing:2px; text-transform:uppercase;
-margin-bottom:20px;
-animation:up .65s ease both;
+letter-spacing:3px; text-transform:uppercase;
+margin-bottom:24px;
+display:flex; align-items:center; gap:12px;
+animation:up .5s ease both;
 }
-.dot {
-width:6px; height:6px; border-radius:50%;
-background:var(–gold); animation:pulse 2s infinite;
+.hero-tag::before, .hero-tag::after {
+content:””; width:36px; height:1px;
+background:var(–gold); opacity:.6;
+flex-shrink:0;
 }
-@keyframes pulse { 50%{ opacity:.25; transform:scale(.55); } }
 
+/* hero h1 */
 .hero h1 {
 position:relative; z-index:2;
-font-size:clamp(32px,9vw,60px); font-weight:900; line-height:1.1;
+font-size:clamp(40px,11vw,72px); font-weight:900; line-height:1.0;
 color:var(–txt);
-margin-bottom:14px;
-animation:up .65s .1s ease both;
+margin-bottom:16px;
+letter-spacing:-1.5px;
+animation:up .5s .1s ease both;
 }
-.hero h1 em { font-style:normal; color:var(–gold); }
+.h1-gold { color:var(–gold); font-style:italic; }
 
 .hero-sub {
 position:relative; z-index:2;
-font-size:clamp(13px,3vw,16px); color:var(–muted);
-line-height:1.85; max-width:420px; margin-bottom:30px;
-animation:up .65s .2s ease both;
+font-size:12px; color:var(–muted);
+letter-spacing:2px; text-transform:uppercase;
+margin-bottom:32px;
+animation:up .5s .2s ease both;
 }
 .hero-btns {
 position:relative; z-index:2;
 display:flex; gap:10px; flex-wrap:wrap; justify-content:center;
-animation:up .65s .3s ease both;
+animation:up .5s .3s ease both;
 }
+.dot { width:6px; height:6px; border-radius:50%; background:var(–gold); animation:pulse 2s infinite; }
+@keyframes pulse { 50%{ opacity:.25; transform:scale(.55); } }
 .btn-fill {
 display:inline-flex; align-items:center; gap:7px;
 background:var(–gold); color:#fff; border:none;
@@ -189,12 +192,39 @@ transition: border-color 0.2s, color 0.2s, transform 0.2s;
 
 .stats {
 position:relative; z-index:2;
-display:flex; gap:28px; flex-wrap:wrap; justify-content:center;
-margin-top:32px; padding-top:24px; border-top:1px solid var(–line);
-animation:up .65s .4s ease both;
+display:flex; align-items:center; gap:0;
+margin-top:40px;
+background: rgba(255,255,255,0.04);
+border:1px solid rgba(255,255,255,0.1);
+border-radius:14px; padding:18px 24px;
+animation:up .5s .4s ease both;
+width:100%; max-width:420px;
 }
-.stn { font-size:27px; font-weight:900; color:var(–gold); line-height:1; }
-.stl { font-size:10px; color:var(–faint); margin-top:4px; letter-spacing:1px; }
+[data-theme=“light”] .stats {
+background: rgba(0,0,0,0.04);
+border-color: rgba(0,0,0,0.08);
+}
+.stat-item { flex:1; text-align:center; }
+.stat-div { width:1px; height:32px; background:rgba(255,255,255,0.1); }
+[data-theme=“light”] .stat-div { background:rgba(0,0,0,0.1); }
+.stn { font-size:22px; font-weight:900; color:var(–gold); line-height:1; }
+.stl { font-size:9px; color:var(–faint); margin-top:3px; letter-spacing:.5px; }
+
+/* scroll hint */
+.scroll-hint {
+position:absolute; bottom:24px; left:50%; transform:translateX(-50%);
+z-index:2;
+}
+.scroll-line {
+width:1px; height:40px;
+background:linear-gradient(to bottom, var(–gold), transparent);
+margin:0 auto;
+animation:scrollpulse 2s ease infinite;
+}
+@keyframes scrollpulse {
+0%,100% { opacity:0.3; transform:scaleY(1); }
+50%      { opacity:1;   transform:scaleY(1.2); }
+}
 
 @keyframes up {
 from { opacity:0; transform:translateY(20px); }
@@ -459,46 +489,63 @@ RESPONSIVE
   <div class="hero-grid"></div>
   <div class="hero-halo"></div>
 
-  <div class="badge">
-    <span class="dot"></span>
-    <span data-ar="متاح للعمل" data-en="Available for work">متاح للعمل</span>
-  </div>
+  <!-- TAG LINE -->
+
+  <div class="hero-tag" data-ar="مطور مواقع · المغرب 🇲🇦" data-en="Web Developer · Morocco 🇲🇦">مطور مواقع · المغرب 🇲🇦</div>
+
+  <!-- MAIN TITLE -->
 
   <h1>
-    <span data-ar="أبني مواقع تبيع" data-en="I build websites that sell">أبني مواقع تبيع</span><br>
-    <em data-ar="وتترك أثراً" data-en="and leave impact">وتترك أثراً</em>
+    <span class="h1-line1" data-ar="أبني مواقع" data-en="I build websites">أبني مواقع</span>
+    <span class="h1-gold" data-ar="تبيع" data-en="that sell">تبيع</span><br>
+    <span class="h1-line2" data-ar="وتترك أثراً" data-en="and leave impact">وتترك أثراً</span>
   </h1>
 
+  <!-- SUB -->
+
   <p class="hero-sub"
-     data-ar="مطور مواقع متخصص في صفحات البيع والمتاجر — تصميم احترافي، تسليم سريع، نتائج حقيقية."
-     data-en="Web developer specialized in sales pages and stores — professional design, fast delivery, real results.">
-    مطور مواقع متخصص في صفحات البيع والمتاجر — تصميم احترافي، تسليم سريع، نتائج حقيقية.
+     data-ar="تصميم احترافي · تسليم سريع · نتائج حقيقية"
+     data-en="Professional design · Fast delivery · Real results">
+    تصميم احترافي · تسليم سريع · نتائج حقيقية
   </p>
 
+  <!-- BUTTONS -->
+
   <div class="hero-btns">
-    <a href="https://wa.me/212680916653?text=بغيت نطلب موقع" target="_blank"
-       class="btn-fill" data-ar="🚀 ابدأ مشروعك" data-en="🚀 Start your project">🚀 ابدأ مشروعك</a>
+    <a href="https://wa.me/212680916653?text=بغيت نطلب موقع" target="_blank" class="btn-fill"
+       data-ar="ابدأ مشروعك ←" data-en="Start your project ←">ابدأ مشروعك ←</a>
     <a href="#projects" class="btn-out"
-       data-ar="مشاهدة الأعمال ↓" data-en="View work ↓">مشاهدة الأعمال ↓</a>
+       data-ar="مشاهدة الأعمال" data-en="View work">مشاهدة الأعمال</a>
   </div>
 
+  <!-- STATS ROW -->
+
   <div class="stats">
-    <div style="text-align:center">
+    <div class="stat-item">
       <div class="stn">4</div>
-      <div class="stl" data-ar="مشاريع منجزة" data-en="Projects done">مشاريع منجزة</div>
+      <div class="stl" data-ar="مشاريع" data-en="Projects">مشاريع</div>
     </div>
-    <div style="text-align:center">
+    <div class="stat-div"></div>
+    <div class="stat-item">
       <div class="stn">48h</div>
-      <div class="stl" data-ar="متوسط التسليم" data-en="Avg. delivery">متوسط التسليم</div>
+      <div class="stl" data-ar="تسليم" data-en="Delivery">تسليم</div>
     </div>
-    <div style="text-align:center">
+    <div class="stat-div"></div>
+    <div class="stat-item">
       <div class="stn">100%</div>
-      <div class="stl" data-ar="رضا العملاء" data-en="Client satisfaction">رضا العملاء</div>
+      <div class="stl" data-ar="رضا" data-en="Satisfaction">رضا</div>
     </div>
-    <div style="text-align:center">
+    <div class="stat-div"></div>
+    <div class="stat-item">
       <div class="stn">0</div>
-      <div class="stl" data-ar="دفع مسبق" data-en="Upfront payment">دفع مسبق</div>
+      <div class="stl" data-ar="دفع مسبق" data-en="Upfront">دفع مسبق</div>
     </div>
+  </div>
+
+  <!-- SCROLL HINT -->
+
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
   </div>
 </section>
 
