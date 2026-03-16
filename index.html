@@ -426,8 +426,21 @@
             border-radius:99px; letter-spacing:1px;
         }
         .pr-nm { font-size:11px; font-weight:700; color:var(--muted); letter-spacing:1.5px; text-transform:uppercase; margin-bottom:5px; }
-        .pr-am { font-size:34px; font-weight:900; line-height:1; margin-bottom:3px; color:var(--txt); }
+        .pr-am { 
+            font-size:34px; font-weight:900; line-height:1; margin-bottom:3px; color:var(--txt); 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            gap: 10px; 
+        }
         .pr-am sub { font-size:13px; font-weight:400; color:var(--muted); }
+        .old-price {
+            font-size: 20px;
+            text-decoration: line-through;
+            color: #ff6b6b;
+            margin-left: 10px;
+            opacity: 0.8;
+        }
         .pr-nt { font-size:11px; color:var(--gold); font-weight:600; margin-bottom:14px; }
         .pr-ln { height:1px; background:var(--line); margin-bottom:14px; }
         .pr-ul { list-style:none; display:flex; flex-direction:column; gap:7px; margin-bottom:18px; }
@@ -553,6 +566,7 @@
             .ext-r:nth-last-child(-n+2) { border-bottom:1px solid var(--line); }
             .ext-r:last-child { border-bottom:none; }
             .stats { gap:18px; }
+            .pr-am { flex-direction: column; gap: 5px; }
         }
     </style>
 </head>
@@ -845,23 +859,26 @@
     </div>
 </section>
 
-<!-- PRICING (معدل الأسعار) -->
+<!-- PRICING (معدل مع تخفيضات) -->
 <section class="sec" id="pricing" style="padding-top:8px">
     <div class="rv">
         <div class="lbl" data-ar="الأسعار" data-en="Pricing">الأسعار</div>
-        <h2 class="sec-h" data-ar="شفاف لكل ميزانية" data-en="Transparent pricing">شفاف لكل ميزانية</h2>
+        <h2 class="sec-h" data-ar="عروض خاصة لفترة محدودة" data-en="Special limited-time offers">عروض خاصة لفترة محدودة</h2>
         <p class="sec-p"
-           data-ar="اختر العرض المناسب لاحتياجاتك"
-           data-en="Choose the right plan for your needs">
-            اختر العرض المناسب لاحتياجاتك
+           data-ar="استغل التخفيضات الآن"
+           data-en="Grab the discounts now">
+            استغل التخفيضات الآن
         </p>
     </div>
 
     <div class="prg rv" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-        <!-- العرض الأول: 350 درهم -->
+        <!-- العرض الأول: 500 درهم -> 350 درهم -->
         <div class="prc">
             <div class="pr-nm" data-ar="الأساسي" data-en="Basic">الأساسي</div>
-            <div class="pr-am">350 <sub data-ar="درهم" data-en="MAD">درهم</sub></div>
+            <div class="pr-am">
+                <span class="old-price">500</span>
+                <span>350 <sub data-ar="درهم" data-en="MAD">درهم</sub></span>
+            </div>
             <div class="pr-nt" data-ar="بدون دومين — رابط GitHub مجاني" data-en="No domain — free GitHub link">بدون دومين — رابط GitHub مجاني</div>
             <div class="pr-ln"></div>
             <ul class="pr-ul">
@@ -877,11 +894,14 @@
                class="btn-l" data-ar="اطلب الآن" data-en="Order now">اطلب الآن</a>
         </div>
 
-        <!-- العرض الثاني: 650 درهم (مع إطار ذهبي) -->
+        <!-- العرض الثاني: 1000 درهم -> 650 درهم (مع إطار ذهبي) -->
         <div class="prc hot">
             <div class="hot-lbl" data-ar="الأكثر طلباً" data-en="Most popular">الأكثر طلباً</div>
             <div class="pr-nm" data-ar="المتكامل" data-en="Premium">المتكامل</div>
-            <div class="pr-am">650 <sub data-ar="درهم" data-en="MAD">درهم</sub></div>
+            <div class="pr-am">
+                <span class="old-price">1000</span>
+                <span>650 <sub data-ar="درهم" data-en="MAD">درهم</sub></span>
+            </div>
             <div class="pr-nt" data-ar="مع دومين .com لمدة سنة ✦" data-en="With .com domain for 1 year ✦">مع دومين .com لمدة سنة ✦</div>
             <div class="pr-ln"></div>
             <ul class="pr-ul">
