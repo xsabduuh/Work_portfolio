@@ -228,7 +228,6 @@ nav.scrolled {
 }
 .h1-gold {
   color: var(--gold);
-  /* خط Playfair للعنوان الذهبي — يعطي طابع luxury -->
   font-family: 'Playfair Display', 'Tajawal', serif;
   font-style: italic;
 }
