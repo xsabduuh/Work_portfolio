@@ -37,6 +37,7 @@ const translations = {
     terms:         'شروط الاستخدام',
     refund:        'سياسة الاسترداد',
     shipping:      'سياسة الشحن',
+    faq:           'الأسئلة الشائعة',
     copyright:     '© 2025 siteforge.ma · جميع الحقوق محفوظة',
     float_chat:    'تواصل معي',
 
@@ -114,7 +115,7 @@ const translations = {
 
     // CTA
     cta_title: 'جاهز تبدأ مشروعك؟ 🚀',
-    cta_desc:  'تواصل معي الآن ',
+    cta_desc:  'تواصل معي الآن — خلال 24 ساعة يكون معك تصور كامل. لا دفع مسبق.',
     cta_btn:   'واتساب',
     cta_ig:    'إنستغرام',
 
@@ -273,6 +274,7 @@ const translations = {
     terms:         'Terms of Use',
     refund:        'Refund Policy',
     shipping:      'Shipping Policy',
+    faq:           'FAQ',
     copyright:     '© 2025 siteforge.ma · All rights reserved',
     float_chat:    'Contact me',
 
@@ -509,6 +511,7 @@ const translations = {
     terms:         "Conditions d'utilisation",
     refund:        'Politique de remboursement',
     shipping:      'Politique de livraison',
+    faq:           'FAQ',
     copyright:     '© 2025 siteforge.ma · Tous droits réservés',
     float_chat:    'Me contacter',
 
@@ -829,3 +832,30 @@ if (backToTopBtn) {
     });
   });
 }
+
+/* ===== 9. تأكيد واتساب ===== */
+document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp.com"]').forEach(link => {
+  link.addEventListener('click', function(e) {
+    const message = currentLang === 'ar' ? 'هل أنت متأكد من رغبتك في التواصل عبر واتساب؟' :
+                    currentLang === 'fr' ? 'Êtes-vous sûr de vouloir contacter via WhatsApp ?' :
+                    'Are you sure you want to contact via WhatsApp?';
+    if (!confirm(message)) {
+      e.preventDefault();
+    }
+  });
+});
+
+/* ===== 10. تمييز الرابط النشط في الفوتر ===== */
+function highlightActiveFooterLink() {
+  const currentFile = window.location.pathname.split('/').pop();
+  if (!currentFile) return;
+  document.querySelectorAll('.fpol .flink').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href === currentFile) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
+    }
+  });
+}
+highlightActiveFooterLink();
