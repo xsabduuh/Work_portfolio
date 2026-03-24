@@ -778,3 +778,11 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+
+/* منع استعادة موضع التمرير السابق */
+history.scrollRestoration = 'manual';
+
+/* تمرير الصفحة إلى الأعلى بعد التحميل */
+window.addEventListener('load', function() {
+  window.scrollTo(0, 0);
+});
