@@ -809,3 +809,23 @@ const cardObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.srv-grid, .why-grid, .pg').forEach(grid => {
   cardObserver.observe(grid);
 });
+
+/* ===== 8. زر العودة للأعلى ===== */
+const backToTopBtn = document.getElementById('backToTop');
+if (backToTopBtn) {
+  // التحكم في ظهور الزر
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      backToTopBtn.classList.add('visible');
+    } else {
+      backToTopBtn.classList.remove('visible');
+    }
+  });
+  // التمرير إلى الأعلى عند النقر
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+}
