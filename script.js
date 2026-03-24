@@ -771,8 +771,10 @@ function highlightActiveFooterLink() {
 highlightActiveFooterLink();
 
 /* ===== 10. تفعيل طيّ بطاقات "لماذا" ===== */
-document.querySelectorAll('.why-card').forEach(card => {
-  card.addEventListener('click', function(e) {
-    this.classList.toggle('open');
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.why-card').forEach(card => {
+    card.addEventListener('click', function(e) {
+      this.classList.toggle('open');
+    });
   });
 });
