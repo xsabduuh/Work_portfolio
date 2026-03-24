@@ -867,21 +867,6 @@ document.querySelectorAll('.srv-grid, .why-grid, .pg').forEach(grid => {
   cardObserver.observe(grid);
 });
 
-/* ===== 8. زر العودة للأعلى ===== */
-const backToTopBtn = document.getElementById('backToTop');
-if (backToTopBtn) {
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 300) {
-      backToTopBtn.classList.add('visible');
-    } else {
-      backToTopBtn.classList.remove('visible');
-    }
-  });
-  backToTopBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-}
-
 /* ===== 9. تأكيد واتساب ===== */
 document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp.com"]').forEach(link => {
   link.addEventListener('click', function(e) {
