@@ -302,3 +302,43 @@ footer { background:var(--surf); border-top:1px solid var(--line); padding:32px 
   .tech-icons { gap: 8px; }
   .tech-icon  { width: 40px; height: 40px; }
 }
+
+/* ========== بطاقات "لماذا" القابلة للطيّ ========== */
+.why-card {
+  cursor: pointer;
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.why-desc {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.6;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, padding 0.2s ease;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+}
+
+.why-card.open .why-desc {
+  max-height: 150px; /* يكفي للنصوص الحالية */
+  padding-top: 8px;
+  padding-bottom: 4px;
+}
+
+/* إضافة سهم صغير للإشارة إلى قابلية النقر */
+.why-card::after {
+  content: "▼";
+  font-size: 10px;
+  color: var(--gold);
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  transition: transform 0.2s;
+}
+
+.why-card.open::after {
+  transform: rotate(180deg);
+}
