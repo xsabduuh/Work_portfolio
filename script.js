@@ -100,6 +100,8 @@ const translations = {
     footer_tagline: 'مطور مواقع',
     privacy:   'سياسة الخصوصية',
     terms:     'شروط الاستخدام',
+    refund: 'سياسة الاسترداد',
+    shipping: 'سياسة الشحن',
     copyright: '© 2025 siteforge.ma · جميع الحقوق محفوظة',
     float_chat: 'تواصل معي'
   },
@@ -178,6 +180,8 @@ const translations = {
     footer_tagline: 'Web Developer',
     privacy:   'Privacy Policy',
     terms:     'Terms of Use',
+    refund: 'Refund Policy',
+    shipping: 'Shipping Policy',
     copyright: '© 2025 siteforge.ma · All rights reserved',
     float_chat: 'Contact me'
   },
@@ -256,6 +260,8 @@ const translations = {
     footer_tagline: 'Développeur Web',
     privacy:   'Politique de confidentialité',
     terms:     "Conditions d'utilisation",
+    refund: 'Politique de remboursement',
+    shipping: 'Politique de livraison',
     copyright: '© 2025 siteforge.ma · Tous droits réservés',
     float_chat: 'Me contacter'
   }
