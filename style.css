@@ -26,7 +26,6 @@ body {
   background: var(--bg);
   color: var(--txt);
   overflow-x: hidden;
-  /* أنيميشن خفيف على الخلفية */
   transition: background 0.4s ease, color 0.4s ease;
 }
 a { text-decoration:none; color:inherit; }
@@ -42,11 +41,9 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* شفاف بالكامل عند الأعلى */
   background: transparent;
   transition: background 0.35s ease, box-shadow 0.35s ease, backdrop-filter 0.35s ease;
 }
-/* عند الـ scroll يصبح frosted glass */
 nav.scrolled {
   background: rgba(250, 247, 242, 0.88);
   backdrop-filter: blur(18px);
@@ -149,8 +146,6 @@ nav.scrolled {
   position: relative;
   overflow: hidden;
 }
-
-/* شبكة الخلفية */
 .hero-grid {
   position: absolute; inset: 0;
   background-image:
@@ -169,8 +164,6 @@ nav.scrolled {
     radial-gradient(ellipse 55% 45% at 85% 30%, rgba(184,122,26,0.05) 0%, transparent 55%);
   z-index: 0;
 }
-
-/* نجوم الهيرو */
 .hero-stars {
   position: absolute; inset: 0;
   overflow: hidden;
@@ -184,11 +177,9 @@ nav.scrolled {
   opacity: 0;
 }
 @keyframes twinkle {
-  0%, 100% { opacity: 0;          transform: scale(0.8); }
-  50%       { opacity: var(--op); transform: scale(1.2); }
+  0%, 100% { opacity: 0; transform: scale(0.8); }
+  50% { opacity: var(--op); transform: scale(1.2); }
 }
-
-/* Badge */
 .hero-badge {
   position: relative; z-index: 2;
   display: inline-flex;
@@ -212,11 +203,9 @@ nav.scrolled {
   animation: pulse 2s infinite;
 }
 @keyframes pulse {
-  0%,100% { box-shadow: 0 0 0 0   rgba(34,197,94,0.4); }
-  50%      { box-shadow: 0 0 0 6px rgba(34,197,94,0);   }
+  0%,100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.4); }
+  50% { box-shadow: 0 0 0 6px rgba(34,197,94,0); }
 }
-
-/* H1 */
 .hero h1 {
   position: relative; z-index: 2;
   font-size: clamp(36px, 10vw, 68px);
@@ -231,7 +220,6 @@ nav.scrolled {
   font-family: 'Playfair Display', 'Tajawal', serif;
   font-style: italic;
 }
-
 .hero-sub {
   position: relative; z-index: 2;
   font-size: 12px;
@@ -241,8 +229,6 @@ nav.scrolled {
   margin-bottom: 32px;
   animation: fadeInUp 0.55s 0.2s ease both;
 }
-
-/* أيقونات التقنيات */
 .tech-icons {
   display: flex;
   gap: 10px;
@@ -266,8 +252,6 @@ nav.scrolled {
   transform: translateY(-5px) scale(1.08);
   box-shadow: 0 8px 24px rgba(0,0,0,0.2);
 }
-
-/* ألوان الأيقونات */
 .ti-html     { background: #e34f26; }
 .ti-css      { background: #264de4; }
 .ti-js       { background: #f7df1e; }
@@ -275,7 +259,6 @@ nav.scrolled {
 .ti-tailwind { background: #06b6d4; }
 .ti-netlify  { background: #00ad9f; }
 
-/* أزرار Hero */
 .hero-btns {
   display: flex;
   gap: 10px;
@@ -284,7 +267,6 @@ nav.scrolled {
   position: relative; z-index: 2;
   animation: fadeInUp 0.55s 0.3s ease both;
 }
-
 .btn-fill {
   background: linear-gradient(135deg, #b87a1a 0%, #d4951e 50%, #e8b94a 100%);
   color: #fff;
@@ -302,7 +284,6 @@ nav.scrolled {
   transform: translateY(-2px);
   box-shadow: 0 8px 32px rgba(184,122,26,0.5);
 }
-
 .btn-out {
   background: rgba(184,122,26,0.07);
   color: var(--gold);
@@ -318,7 +299,6 @@ nav.scrolled {
   background: rgba(184,122,26,0.14);
   transform: translateY(-2px);
 }
-
 .btn-phone {
   display: inline-flex;
   align-items: center;
@@ -340,7 +320,6 @@ nav.scrolled {
 }
 .btn-phone svg { fill: var(--gold); }
 
-/* الإحصائيات */
 .stats {
   display: flex;
   align-items: center;
@@ -359,7 +338,6 @@ nav.scrolled {
 .stn { font-size: 20px; font-weight: 900; color: var(--gold); line-height: 1; }
 .stl { font-size: 9px; color: var(--faint); margin-top: 3px; letter-spacing: 0.5px; }
 
-/* Scroll hint */
 .scroll-hint {
   position: absolute;
   bottom: 28px; left: 50%;
@@ -373,8 +351,8 @@ nav.scrolled {
   animation: scrollPulse 2s ease infinite;
 }
 @keyframes scrollPulse {
-  0%,100% { opacity: 0.4; transform: scaleY(1);   }
-  50%      { opacity: 1;   transform: scaleY(1.2); }
+  0%,100% { opacity: 0.4; transform: scaleY(1); }
+  50% { opacity: 1; transform: scaleY(1.2); }
 }
 
 /* ========== الأقسام العامة ========== */
@@ -431,7 +409,6 @@ nav.scrolled {
   text-align: center;
   transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
   box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-  /* أنيميشن دخول خفيف */
   animation: fadeInUp 0.5s ease both;
 }
 .srv-card:hover {
@@ -778,8 +755,6 @@ nav.scrolled {
   width: 300px; height: 200px;
   background: radial-gradient(ellipse at top, rgba(184,122,26,0.09), transparent 70%);
 }
-
-/* أزرار CTA */
 .cta-btns {
   display: flex;
   gap: 12px;
@@ -804,7 +779,6 @@ nav.scrolled {
 }
 .wa-btn:hover { opacity: 0.9; transform: translateY(-2px); }
 .wa-ic { width: 20px; height: 20px; }
-
 .ig-btn {
   display: inline-flex;
   align-items: center;
@@ -822,7 +796,6 @@ nav.scrolled {
   font-family: 'Tajawal', sans-serif;
 }
 .ig-btn:hover { opacity: 0.9; transform: translateY(-2px); }
-
 .cta-nt {
   margin-top: 14px;
   font-size: 12px;
@@ -846,8 +819,6 @@ footer {
 }
 .fl span { color: var(--txt); }
 .fs { font-size: 11px; color: var(--faint); margin-bottom: 18px; }
-
-/* روابط التواصل الاجتماعي في الفوتر */
 .social-links {
   display: flex;
   gap: 10px;
@@ -871,7 +842,6 @@ footer {
   background: var(--gdim);
   transform: translateY(-2px);
 }
-
 .fpol { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 10px; }
 .flink { font-size: 11px; color: var(--muted); font-weight: 600; transition: color 0.2s; }
 .flink:hover { color: var(--gold); }
@@ -905,6 +875,41 @@ footer {
   animation: pulse 2s infinite;
 }
 
+/* ========== زر العودة للأعلى ========== */
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  transition: opacity 0.3s ease, transform 0.2s ease, background 0.2s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+}
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+.back-to-top:hover {
+  background: #d4951e;
+  transform: translateY(-3px);
+}
+.back-to-top svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
 /* ========== Scroll Reveal ========== */
 .rv {
   opacity: 0;
@@ -933,8 +938,11 @@ footer {
   .stats     { padding: 14px 18px; }
   .pr-am     { flex-direction: column; gap: 4px; }
   .cta-btns  { flex-direction: column; align-items: center; }
+  .back-to-top {
+    bottom: 80px; /* يرفع الزر فوق زر الواتساب الثابت */
+    right: 20px;
+  }
 }
-
 @media (max-width: 380px) {
   .srv-grid { grid-template-columns: 1fr; }
   .why-grid { grid-template-columns: 1fr; }
