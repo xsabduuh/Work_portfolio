@@ -201,7 +201,7 @@ const translations = {
 // الوضع الليلي
 const themeBtn = document.getElementById('themeBtn');
 const html = document.documentElement;
-let currentTheme = localStorage.getItem('theme') || 'dark';
+let currentTheme = localStorage.getItem('theme') || 'light';
 html.setAttribute('data-theme', currentTheme);
 themeBtn.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
 themeBtn.addEventListener('click', () => {
