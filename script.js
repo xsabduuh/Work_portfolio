@@ -261,6 +261,24 @@ const translations = {
     shipping_s4_li2: 'إشعار فوري عبر واتساب بأسباب التأخير',
     shipping_highlight: '📱 يمكنك متابعة حالة مشروعك في أي وقت عبر التواصل على واتساب: <strong dir="ltr">+212 680 916 653</strong>',
     shipping_back_link: '← العودة إلى الصفحة الرئيسية',
+
+    // FAQ page
+    faq_help_badge: 'مساعدة',
+    faq_title: 'الأسئلة الشائعة',
+    faq_updated: 'آخر تحديث: مارس 2025',
+    faq_q1: '❓ كيف أطلب موقعاً؟',
+    faq_a1: 'يمكنك التواصل عبر واتساب أو الضغط على أي زر "اطلب الآن" وسأتواصل معك في أقل من 24 ساعة. لا دفع مسبق.',
+    faq_q2: '❓ ما هي طرق الدفع؟',
+    faq_a2: 'نقبل الدفع عبر التحويل البنكي أو النقدي (حسب الاتفاق). يتم الدفع بعد استلام الموقع والموافقة عليه بالكامل.',
+    faq_q3: '❓ هل يمكن تعديل الموقع بعد التسليم؟',
+    faq_a3: 'نعم، يمكن طلب تعديلات بسيطة ضمن فترة الدعم المرفقة مع الباقة. التعديلات الكبيرة تحتسب بشكل منفصل.',
+    faq_q4: '❓ كم تستغرق مدة التسليم؟',
+    faq_a4: 'حسب الباقة: الأساسي والاحترافي خلال 48 ساعة، المتكامل خلال 5 أيام. تبدأ المدة بعد توفير المحتوى الكامل.',
+    faq_q5: '❓ ماذا لو لم يعجبني الموقع؟',
+    faq_a5: 'نقوم بتعديل الموقع حتى يرضيك قبل الدفع. إذا لم نتمكن من تلبية طلبك، يمكنك إلغاء الطلب دون أي التزام.',
+    faq_q6: '❓ هل أحصل على ملفات الموقع بعد التسليم؟',
+    faq_a6: 'نعم، ستحصل على رابط الموقع المنشور، وملفات HTML/CSS/JS كاملة، ورابط مستودع GitHub إذا طلبت ذلك.',
+    faq_back_link: '← العودة إلى الصفحة الرئيسية',
   },
 
   en: {
@@ -498,6 +516,24 @@ const translations = {
     shipping_s4_li2: 'Immediate notification via WhatsApp with reasons for delay',
     shipping_highlight: '📱 You can track your project status anytime by contacting us on WhatsApp: <strong dir="ltr">+212 680 916 653</strong>',
     shipping_back_link: '← Back to home',
+
+    // FAQ page
+    faq_help_badge: 'Help',
+    faq_title: 'Frequently Asked Questions',
+    faq_updated: 'Last updated: March 2025',
+    faq_q1: '❓ How can I order a website?',
+    faq_a1: 'You can contact me via WhatsApp or click any "Order now" button, and I will get back to you within 24 hours. No upfront payment.',
+    faq_q2: '❓ What are the payment methods?',
+    faq_a2: 'We accept bank transfer or cash (as agreed). Payment is made after receiving and approving the site.',
+    faq_q3: '❓ Can I make changes after delivery?',
+    faq_a3: 'Yes, simple modifications are included in the support period of your package. Larger changes are charged separately.',
+    faq_q4: '❓ How long does delivery take?',
+    faq_a4: 'Basic and Professional: within 48 hours; Premium: within 5 days. The timeline starts after you provide all required content.',
+    faq_q5: '❓ What if I don\'t like the site?',
+    faq_a5: 'We will modify the site until you are satisfied before payment. If we cannot meet your request, you can cancel with no obligation.',
+    faq_q6: '❓ Do I get the site files after delivery?',
+    faq_a6: 'Yes, you will receive the published website link, the complete HTML/CSS/JS files, and a GitHub repository link if requested.',
+    faq_back_link: '← Back to home',
   },
 
   fr: {
@@ -735,6 +771,24 @@ const translations = {
     shipping_s4_li2: 'Notification immédiate via WhatsApp avec les raisons du retard',
     shipping_highlight: '📱 Vous pouvez suivre l\'état de votre projet à tout moment en nous contactant sur WhatsApp : <strong dir="ltr">+212 680 916 653</strong>',
     shipping_back_link: '← Retour à l\'accueil',
+
+    // FAQ page
+    faq_help_badge: 'Aide',
+    faq_title: 'Questions fréquentes',
+    faq_updated: 'Dernière mise à jour : mars 2025',
+    faq_q1: '❓ Comment commander un site ?',
+    faq_a1: 'Vous pouvez me contacter via WhatsApp ou cliquer sur un bouton "Commander". Je vous répondrai dans les 24 heures. Aucun paiement initial.',
+    faq_q2: '❓ Quels sont les modes de paiement ?',
+    faq_a2: 'Nous acceptons le virement bancaire ou en espèces (selon accord). Le paiement est effectué après réception et approbation du site.',
+    faq_q3: '❓ Puis-je modifier le site après livraison ?',
+    faq_a3: 'Oui, des modifications simples sont incluses dans la période de support de votre formule. Les changements importants sont facturés séparément.',
+    faq_q4: '❓ Combien de temps dure la livraison ?',
+    faq_a4: 'Formules Essentiel et Professionnel : 48 heures ; Premium : 5 jours. Le délai commence après la fourniture de tout le contenu.',
+    faq_q5: '❓ Et si je n\'aime pas le site ?',
+    faq_a5: 'Nous modifions le site jusqu\'à votre satisfaction avant le paiement. Si nous ne pouvons répondre à votre demande, vous pouvez annuler sans engagement.',
+    faq_q6: '❓ Est-ce que je reçois les fichiers du site après livraison ?',
+    faq_a6: 'Oui, vous recevrez le lien du site publié, les fichiers HTML/CSS/JS complets, ainsi qu\'un lien vers le dépôt GitHub si demandé.',
+    faq_back_link: '← Retour à l\'accueil',
   }
 };
 
@@ -816,7 +870,6 @@ document.querySelectorAll('.srv-grid, .why-grid, .pg').forEach(grid => {
 /* ===== 8. زر العودة للأعلى ===== */
 const backToTopBtn = document.getElementById('backToTop');
 if (backToTopBtn) {
-  // التحكم في ظهور الزر
   window.addEventListener('scroll', () => {
     if (window.scrollY > 300) {
       backToTopBtn.classList.add('visible');
@@ -824,12 +877,8 @@ if (backToTopBtn) {
       backToTopBtn.classList.remove('visible');
     }
   });
-  // التمرير إلى الأعلى عند النقر
   backToTopBtn.addEventListener('click', () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
 
