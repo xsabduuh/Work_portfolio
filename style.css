@@ -845,6 +845,12 @@ footer {
 .fpol { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 10px; }
 .flink { font-size: 11px; color: var(--muted); font-weight: 600; transition: color 0.2s; }
 .flink:hover { color: var(--gold); }
+/* تمييز الرابط النشط في الفوتر */
+.flink.active {
+  color: var(--gold);
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 2px;
+}
 .fcopy { font-size: 10px; color: var(--faint); margin-top: 4px; font-family: 'DM Sans', sans-serif; }
 
 /* ========== زر الواتساب الثابت ========== */
@@ -939,7 +945,7 @@ footer {
   .pr-am     { flex-direction: column; gap: 4px; }
   .cta-btns  { flex-direction: column; align-items: center; }
   .back-to-top {
-    bottom: 80px; /* يرفع الزر فوق زر الواتساب الثابت */
+    bottom: 80px;
     right: 20px;
   }
 }
