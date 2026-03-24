@@ -777,3 +777,10 @@ document.querySelectorAll('.why-card').forEach(card => {
     this.classList.toggle('open');
   });
 });
+
+/* ===== 11. تفعيل طيّ بطاقات "لماذا" ===== */
+document.querySelectorAll('.why-card').forEach(card => {
+  card.addEventListener('click', function(e) {
+    this.classList.toggle('open');
+  });
+});
