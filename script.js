@@ -1,4 +1,20 @@
 // ==================== الترجمة والثيم ====================
+// نجوم الهيرو
+(function() {
+  var container = document.getElementById('heroStars');
+  if (!container) return;
+  for (var i = 0; i < 60; i++) {
+    var star = document.createElement('div');
+    star.className = 'star';
+    var size = Math.random() * 2.5 + 0.5;
+    var op = Math.random() * 0.4 + 0.1;
+    var delay = Math.random() * 5;
+    var dur = Math.random() * 3 + 2;
+    star.style.cssText = 'width:' + size + 'px;height:' + size + 'px;top:' + Math.random() * 100 + '%;left:' + Math.random() * 100 + '%;--d:' + dur + 's;--op:' + op + ';animation-delay:' + delay + 's;';
+    container.appendChild(star);
+  }
+})();
+
 const translations = {
   ar: {
     contact: 'تواصل',
