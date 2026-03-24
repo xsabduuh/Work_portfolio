@@ -100,8 +100,8 @@ const translations = {
     footer_tagline: 'مطور مواقع',
     privacy:   'سياسة الخصوصية',
     terms:     'شروط الاستخدام',
-    refund: 'سياسة الاسترداد',
-    shipping: 'سياسة الشحن',
+    refund:    'سياسة الاسترداد',
+    shipping:  'سياسة الشحن',
     copyright: '© 2025 siteforge.ma · جميع الحقوق محفوظة',
     float_chat: 'تواصل معي'
   },
@@ -180,8 +180,8 @@ const translations = {
     footer_tagline: 'Web Developer',
     privacy:   'Privacy Policy',
     terms:     'Terms of Use',
-    refund: 'Refund Policy',
-    shipping: 'Shipping Policy',
+    refund:    'Refund Policy',
+    shipping:  'Shipping Policy',
     copyright: '© 2025 siteforge.ma · All rights reserved',
     float_chat: 'Contact me'
   },
@@ -260,8 +260,8 @@ const translations = {
     footer_tagline: 'Développeur Web',
     privacy:   'Politique de confidentialité',
     terms:     "Conditions d'utilisation",
-    refund: 'Politique de remboursement',
-    shipping: 'Politique de livraison',
+    refund:    'Politique de remboursement',
+    shipping:  'Politique de livraison',
     copyright: '© 2025 siteforge.ma · Tous droits réservés',
     float_chat: 'Me contacter'
   }
@@ -280,7 +280,6 @@ function applyLanguage(lang) {
     const key = el.getAttribute('data-i18n');
     if (t[key] !== undefined) el.textContent = t[key];
   });
-  // تحديث الأزرار النشطة
   document.querySelectorAll('.lang-opt').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.lang === lang);
   });
@@ -288,7 +287,6 @@ function applyLanguage(lang) {
   currentLang = lang;
 }
 
-// ربط أزرار اللغة
 document.querySelectorAll('.lang-opt').forEach(btn => {
   btn.addEventListener('click', () => applyLanguage(btn.dataset.lang));
 });
