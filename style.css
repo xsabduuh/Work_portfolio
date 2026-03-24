@@ -1,843 +1,335 @@
-/* ========== المتغيرات ========== */
-:root {
-    --bg: #080c14;
-    --surf: #0f1520;
-    --surf2: #1a2235;
-    --line: rgba(99,148,255,0.12);
-    --txt: #eef2ff;
-    --muted: #8899bb;
-    --faint: #445066;
-    --gold: #e8b94a;
-    --gdim: rgba(232,185,74,0.10);
-    --gline: rgba(232,185,74,0.35);
-    --accent: #3d6cff;
-    --shade: 0 8px 40px rgba(0,0,0,0.6);
+/* ==========================================
+siteforge.ma — script.js
+مُصلَح ومُنظَّم بالكامل
+========================================== */
+
+/* ===== 1. نجوم الهيرو ===== */
+(function () {
+const container = document.getElementById(‘heroStars’);
+if (!container) return;
+const fragment = document.createDocumentFragment();
+for (let i = 0; i < 55; i++) {
+const star = document.createElement(‘div’);
+star.className = ‘star’;
+const size  = Math.random() * 2.5 + 0.5;
+const op    = Math.random() * 0.35 + 0.08;
+const delay = Math.random() * 6;
+const dur   = Math.random() * 3 + 2;
+star.style.cssText =
+`width:${size}px;height:${size}px;` +
+`top:${Math.random() * 100}%;left:${Math.random() * 100}%;` +
+`--d:${dur}s;--op:${op};animation-delay:${delay}s;`;
+fragment.appendChild(star);
 }
-[data-theme="light"] {
-    --bg: #faf7f2;
-    --surf: #ffffff;
-    --surf2: #f0ebe2;
-    --line: rgba(0,0,0,0.08);
-    --txt: #1c1409;
-    --muted: #5c4d38;
-    --faint: #b5a48c;
-    --gold: #b87a1a;
-    --gdim: rgba(184,122,26,0.09);
-    --gline: rgba(184,122,26,0.30);
-    --accent: #2a52cc;
-    --shade: 0 8px 32px rgba(0,0,0,0.07);
+container.appendChild(fragment);
+})();
+
+/* ===== 2. الترجمات (AR / EN / FR) ===== */
+const translations = {
+ar: {
+nav_projects:  ‘أعمالي’,
+nav_services:  ‘الخدمات’,
+nav_pricing:   ‘الأسعار’,
+contact:       ‘تواصل’,
+hero_tag:      ‘مطور مواقع’,
+hero_line1:    ‘موقع مصمم خصيصاً لك،’,
+hero_line2:    ‘يعكس مشروعك ويجذب العملاء’,
+hero_sub:      ‘تصميم احترافي · تسليم سريع · نتائج حقيقية’,
+hero_cta:      ‘ابدأ مشروعك ←’,
+hero_work:     ‘مشاهدة الأعمال’,
+stat_delivery: ‘تسليم سريع’,
+stat_support:  ‘دعم بعد التسليم’,
+stat_quality:  ‘ضمان الجودة’,
+why_label:     ‘لماذا أنا’,
+why_title:     ‘لماذا تختارني؟’,
+why1: ‘تواصل سريع’,   why2: ‘صيانة دورية’,
+why3: ‘نتائج حقيقية’, why4: ‘تسليم سريع’,
+why5: ‘جودة مضمونة’,  why6: ‘حلول مخصصة’,
+projects_label: ‘أعمالي’,
+projects_title: ‘شوف نماذج من المواقع اللي صممناها’,
+projects_desc:  ‘كل موقع خدمناه كان بهدف واضح: تصميم عصري، سرعة في التصفح، وتجربة مستخدم تخلي الزائر يثق في المشروع من أول زيارة.’,
+project1_tag: ‘متجر’,       project1_number: ‘01 — مكتبة’,     project1_title: ‘مكتبة النور’,       project1_desc: ‘موقع مكتبة إلكترونية مخصص لبيع الكتب أونلاين.’,
+project2_tag: ‘متجر’,       project2_number: ‘02 — عطور’,      project2_title: ‘متجر العطور’,        project2_desc: ‘متجر عطور بتصميم أنيق يبرز جمالية المنتجات.’,
+project3_tag: ‘صفحة بيع’,   project3_number: ‘03 — تسويق’,     project3_title: ‘دورة تسويق رقمي’,   project3_desc: ‘موقع احترافي لعرض دورة في التسويق الرقمي.’,
+project4_tag: ‘مطعم’,       project4_number: ‘04 — مطعم’,      project4_title: ‘مطعم أطلس’,          project4_desc: ‘موقع مطعم يعرض المنيو والصور بطريقة جذابة.’,
+project5_tag: ‘موقع شركة’,  project5_number: ‘05 — وكالة سفر’, project5_title: ‘سفاري’,              project5_desc: ‘موقع وكالة سفر يعرض الرحلات والعروض بوضوح.’,
+view: ‘عرض ←’,
+services_label: ‘خدماتي’,
+services_title: ‘ماذا أقدم لك؟’,
+services_desc:  ‘كل ما تحتاجه لتحويل فكرتك إلى موقع يبيع.’,
+service1: ‘متجر إلكتروني’,     service1_desc: ‘سلة تسوق، طلبات، وتكامل مع واتساب.’,
+service2: ‘صفحة بيع’,          service2_desc: ‘تحويل أكبر عدد من الزوار إلى مشترين.’,
+service3: ‘موقع شركة / مطعم’,  service3_desc: ‘تقديم احترافي يبني الثقة ويجذب العملاء.’,
+service4: ‘تصميم متجاوب 100%’, service4_desc: ‘مثالي على الجوال والكمبيوتر واللوحة.’,
+service5: ‘تسليم سريع’,        service5_desc: ‘موقعك جاهز خلال 48 ساعة فقط.’,
+service6: ‘جودة مضمونة’,       service6_desc: ‘دعم كامل بعد التسليم وضمان الجودة.’,
+pricing_label: ‘الأسعار’,
+pricing_title: ‘عروض خاصة لفترة محدودة’,
+pricing_desc:  ‘استغل التخفيضات الآن’,
+basic_name:  ‘الأساسي’,
+basic_note:  ‘بدون دومين — رابط GitHub مجاني’,
+basic_feat1: ‘صفحة واحدة (متجر أو Landing Page)’,
+basic_feat2: ‘تصميم احترافي متجاوب’,
+basic_feat3: ‘تكامل مع واتساب’,
+basic_feat4: ‘تسليم خلال 48 ساعة’,
+basic_feat5: ‘أسبوع دعم مجاني’,
+basic_feat6: ‘دومين خاص’,
+basic_feat7: ‘صفحات متعددة’,
+order_now:    ‘اطلب الآن’,
+most_popular: ‘الأكثر طلباً’,
+premium_name:  ‘المتكامل’,
+premium_note:  ‘مع دومين .com لمدة سنة ✦’,
+premium_feat1: ‘حتى 4 صفحات’,
+premium_feat2: ‘تصميم احترافي متجاوب’,
+premium_feat3: ‘تكامل مع واتساب’,
+premium_feat4: ‘تسليم خلال 5 أيام’,
+premium_feat5: ‘شهر دعم مجاني’,
+premium_feat6: ‘دومين .com لسنة كاملة’,
+premium_feat7: ‘نموذج تواصل مخصص’,
+start_now:    ‘ابدأ الآن ✦’,
+currency:     ‘درهم’,
+extras_title: ‘خدمات إضافية’,
+extra1: ‘تعديل بسيط’,      extra1_price: ‘50 درهم’,
+extra2: ‘إضافة صفحة’,      extra2_price: ‘100 درهم’,
+extra3: ‘دومين .ma مغربي’, extra3_price: ‘120 درهم/سنة’,
+extra4: ‘صيانة شهرية’,     extra4_price: ‘80 درهم/شهر’,
+cta_title: ‘جاهز تبدأ مشروعك؟ 🚀’,
+cta_desc:  ‘تواصل معي الآن — خلال 24 ساعة يكون معك تصور كامل. لا دفع مسبق.’,
+cta_btn:   ‘واتساب’,
+cta_ig:    ‘إنستغرام’,
+footer_tagline: ‘مطور مواقع’,
+privacy:   ‘سياسة الخصوصية’,
+terms:     ‘شروط الاستخدام’,
+copyright: ‘© 2025 siteforge.ma · جميع الحقوق محفوظة’,
+float_chat: ‘تواصل معي’
+},
+
+en: {
+nav_projects:  ‘My Work’,
+nav_services:  ‘Services’,
+nav_pricing:   ‘Pricing’,
+contact:       ‘Contact’,
+hero_tag:      ‘Web Developer’,
+hero_line1:    ‘A website built just for you,’,
+hero_line2:    ‘that reflects your brand & converts visitors’,
+hero_sub:      ‘Pro design · Fast delivery · Real results’,
+hero_cta:      ‘Start your project →’,
+hero_work:     ‘View work’,
+stat_delivery: ‘Fast delivery’,
+stat_support:  ‘Post-launch support’,
+stat_quality:  ‘Quality guarantee’,
+why_label:     ‘Why me’,
+why_title:     ‘Why choose me?’,
+why1: ‘Fast communication’, why2: ‘Regular maintenance’,
+why3: ‘Real results’,       why4: ‘Fast delivery’,
+why5: ‘Quality guaranteed’, why6: ‘Custom solutions’,
+projects_label: ‘My Work’,
+projects_title: ‘Check out our recent projects’,
+projects_desc:  ‘Every site we built had a clear goal: modern design, fast load, and a user experience that builds trust from the first visit.’,
+project1_tag: ‘Store’,       project1_number: ‘01 — Books’,   project1_title: ‘Al-Nour Bookstore’,     project1_desc: ‘An online bookstore for easy book selection and ordering.’,
+project2_tag: ‘Store’,       project2_number: ‘02 — Perfume’, project2_title: ‘Perfume Store’,          project2_desc: ‘An elegant perfume store with a smooth shopping experience.’,
+project3_tag: ‘Landing Page’,project3_number: ‘03 — Marketing’,project3_title:‘Digital Marketing Course’,project3_desc:‘A professional site to showcase and sell a marketing course.’,
+project4_tag: ‘Restaurant’,  project4_number: ‘04 — Restaurant’,project4_title:‘Atlas Restaurant’,      project4_desc: ‘A restaurant site displaying the menu in an attractive way.’,
+project5_tag: ‘Business’,    project5_number: ‘05 — Travel’,  project5_title: ‘Safari Travel Agency’,   project5_desc: ‘A travel agency site showcasing trips and offers clearly.’,
+view: ‘View →’,
+services_label: ‘Services’,
+services_title: ‘What I offer’,
+services_desc:  ‘Everything you need to turn your idea into a selling website.’,
+service1: ‘E-commerce Store’,     service1_desc: ‘Cart, orders and WhatsApp integration.’,
+service2: ‘Landing Page’,         service2_desc: ‘Convert maximum visitors into buyers.’,
+service3: ‘Business / Restaurant’,service3_desc: ‘Professional presentation that builds trust.’,
+service4: ‘100% Responsive’,      service4_desc: ‘Perfect on mobile, desktop and tablet.’,
+service5: ‘Fast Delivery’,        service5_desc: ‘Your site is ready within 48 hours.’,
+service6: ‘Quality Guaranteed’,   service6_desc: ‘Full support after delivery.’,
+pricing_label: ‘Pricing’,
+pricing_title: ‘Special limited-time offers’,
+pricing_desc:  ‘Grab the deals now’,
+basic_name:  ‘Basic’,
+basic_note:  ‘No domain — free GitHub link’,
+basic_feat1: ‘Single page (store or landing page)’,
+basic_feat2: ‘Professional responsive design’,
+basic_feat3: ‘WhatsApp integration’,
+basic_feat4: ‘Delivery within 48 hours’,
+basic_feat5: ‘1 week free support’,
+basic_feat6: ‘Custom domain’,
+basic_feat7: ‘Multiple pages’,
+order_now:    ‘Order now’,
+most_popular: ‘Most popular’,
+premium_name:  ‘Premium’,
+premium_note:  ‘With .com domain for 1 year ✦’,
+premium_feat1: ‘Up to 4 pages’,
+premium_feat2: ‘Professional responsive design’,
+premium_feat3: ‘WhatsApp integration’,
+premium_feat4: ‘Delivery within 5 days’,
+premium_feat5: ‘1 month free support’,
+premium_feat6: ‘.com domain for 1 year’,
+premium_feat7: ‘Custom contact form’,
+start_now:    ‘Start now ✦’,
+currency:     ‘MAD’,
+extras_title: ‘Extra services’,
+extra1: ‘Simple edit’,        extra1_price: ‘50 MAD’,
+extra2: ‘Add a page’,         extra2_price: ‘100 MAD’,
+extra3: ‘.ma Moroccan domain’,extra3_price: ‘120 MAD/yr’,
+extra4: ‘Monthly maintenance’,extra4_price: ‘80 MAD/mo’,
+cta_title: ‘Ready to start? 🚀’,
+cta_desc:  ‘Message me on WhatsApp — get a full proposal within 24h. No upfront payment.’,
+cta_btn:   ‘WhatsApp’,
+cta_ig:    ‘Instagram’,
+footer_tagline: ‘Web Developer’,
+privacy:   ‘Privacy Policy’,
+terms:     ‘Terms of Use’,
+copyright: ‘© 2025 siteforge.ma · All rights reserved’,
+float_chat: ‘Contact me’
+},
+
+fr: {
+nav_projects:  ‘Mes Travaux’,
+nav_services:  ‘Services’,
+nav_pricing:   ‘Tarifs’,
+contact:       ‘Contact’,
+hero_tag:      ‘Développeur Web’,
+hero_line1:    ‘Un site conçu spécialement pour vous,’,
+hero_line2:    ‘qui reflète votre marque et attire des clients’,
+hero_sub:      ‘Design pro · Livraison rapide · Résultats réels’,
+hero_cta:      ‘Démarrez votre projet →’,
+hero_work:     ‘Voir les travaux’,
+stat_delivery: ‘Livraison rapide’,
+stat_support:  ‘Support après livraison’,
+stat_quality:  ‘Qualité garantie’,
+why_label:     ‘Pourquoi moi’,
+why_title:     ‘Pourquoi me choisir ?’,
+why1: ‘Communication rapide’, why2: ‘Maintenance régulière’,
+why3: ‘Vrais résultats’,      why4: ‘Livraison rapide’,
+why5: ‘Qualité garantie’,     why6: ‘Solutions sur mesure’,
+projects_label: ‘Mes Travaux’,
+projects_title: ‘Découvrez nos projets récents’,
+projects_desc:  ‘Chaque site avait un objectif clair : design moderne, chargement rapide et une expérience utilisateur qui inspire confiance.’,
+project1_tag: ‘Boutique’,      project1_number: ‘01 — Livres’,   project1_title: ‘Librairie Al-Nour’,      project1_desc: ‘Boutique de livres en ligne avec livraison.’,
+project2_tag: ‘Boutique’,      project2_number: ‘02 — Parfums’,  project2_title: ‘Boutique de Parfums’,     project2_desc: ‘Boutique de parfums élégante avec une expérience fluide.’,
+project3_tag: ‘Landing Page’,  project3_number: ‘03 — Marketing’,project3_title: ‘Cours Marketing Digital’, project3_desc: ‘Site professionnel pour présenter et vendre une formation.’,
+project4_tag: ‘Restaurant’,    project4_number: ‘04 — Restaurant’,project4_title:‘Restaurant Atlas’,         project4_desc: ‘Site restaurant affichant le menu de façon attrayante.’,
+project5_tag: ‘Entreprise’,    project5_number: ‘05 — Voyages’,  project5_title: ‘Agence Safari’,           project5_desc: ‘Site agence de voyage présentant les offres clairement.’,
+view: ‘Voir →’,
+services_label: ‘Services’,
+services_title: ‘Ce que je propose’,
+services_desc:  ‘Tout ce dont vous avez besoin pour transformer votre idée en site web qui vend.’,
+service1: ‘Boutique en ligne’,      service1_desc: ‘Panier, commandes et intégration WhatsApp.’,
+service2: ‘Page de vente’,          service2_desc: ‘Convertir un maximum de visiteurs en acheteurs.’,
+service3: ‘Site Entreprise / Resto’,service3_desc: ‘Présentation pro qui inspire confiance.’,
+service4: ‘100% Responsive’,        service4_desc: ‘Parfait sur mobile, desktop et tablette.’,
+service5: ‘Livraison rapide’,       service5_desc: ‘Votre site est prêt en 48 heures.’,
+service6: ‘Qualité garantie’,       service6_desc: ‘Support complet après la livraison.’,
+pricing_label: ‘Tarifs’,
+pricing_title: ‘Offres spéciales à durée limitée’,
+pricing_desc:  ‘Profitez des réductions maintenant’,
+basic_name:  ‘Essentiel’,
+basic_note:  ‘Sans domaine — lien GitHub gratuit’,
+basic_feat1: ‘Une page (boutique ou landing page)’,
+basic_feat2: ‘Design responsive professionnel’,
+basic_feat3: ‘Intégration WhatsApp’,
+basic_feat4: ‘Livraison en 48 heures’,
+basic_feat5: ‘1 semaine support gratuit’,
+basic_feat6: ‘Domaine personnalisé’,
+basic_feat7: ‘Pages multiples’,
+order_now:    ‘Commander’,
+most_popular: ‘Le plus demandé’,
+premium_name:  ‘Premium’,
+premium_note:  ‘Avec domaine .com pour 1 an ✦’,
+premium_feat1: ‘Jusqu'à 4 pages’,
+premium_feat2: ‘Design responsive professionnel’,
+premium_feat3: ‘Intégration WhatsApp’,
+premium_feat4: ‘Livraison en 5 jours’,
+premium_feat5: ‘1 mois support gratuit’,
+premium_feat6: ‘Domaine .com pour 1 an’,
+premium_feat7: ‘Formulaire de contact personnalisé’,
+start_now:    ‘Commencer ✦’,
+currency:     ‘MAD’,
+extras_title: ‘Services supplémentaires’,
+extra1: ‘Modification simple’,    extra1_price: ‘50 MAD’,
+extra2: ‘Ajout de page’,          extra2_price: ‘100 MAD’,
+extra3: ‘Domaine .ma marocain’,   extra3_price: ‘120 MAD/an’,
+extra4: ‘Maintenance mensuelle’,  extra4_price: ‘80 MAD/mois’,
+cta_title: ‘Prêt à démarrer ? 🚀’,
+cta_desc:  ‘Contactez-moi sur WhatsApp — obtenez une proposition complète en 24h. Pas de paiement initial.’,
+cta_btn:   ‘WhatsApp’,
+cta_ig:    ‘Instagram’,
+footer_tagline: ‘Développeur Web’,
+privacy:   ‘Politique de confidentialité’,
+terms:     ‘Conditions d'utilisation’,
+copyright: ‘© 2025 siteforge.ma · Tous droits réservés’,
+float_chat: ‘Me contacter’
+}
+};
+
+/* ===== 3. النظام اللغوي ===== */
+let currentLang = localStorage.getItem(‘lang’) || ‘ar’;
+
+function applyLanguage(lang) {
+const t   = translations[lang];
+if (!t) return;
+const dir = lang === ‘ar’ ? ‘rtl’ : ‘ltr’;
+document.documentElement.lang = lang;
+document.body.dir             = dir;
+document.querySelectorAll(’[data-i18n]’).forEach(el => {
+const key = el.getAttribute(‘data-i18n’);
+if (t[key] !== undefined) el.textContent = t[key];
+});
+// تحديث الأزرار النشطة
+document.querySelectorAll(’.lang-opt’).forEach(btn => {
+btn.classList.toggle(‘active’, btn.dataset.lang === lang);
+});
+localStorage.setItem(‘lang’, lang);
+currentLang = lang;
 }
 
-* { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior:smooth; }
-body {
-    font-family:'Tajawal',sans-serif;
-    background:var(--bg);
-    color:var(--txt);
-    transition:background 0.3s, color 0.3s;
-    overflow-x:hidden;
-}
-a { text-decoration:none; color:inherit; }
+// ربط أزرار اللغة
+document.querySelectorAll(’.lang-opt’).forEach(btn => {
+btn.addEventListener(‘click’, () => applyLanguage(btn.dataset.lang));
+});
 
-/* شريط التنقل */
-nav {
-    position:fixed; top:0; left:0; right:0; z-index:999;
-    height:56px; padding:0 18px;
-    display:flex; align-items:center; justify-content:space-between;
-    background:rgba(8,12,20,0.85);
-    backdrop-filter:blur(16px);
-    border-bottom:1px solid rgba(61,108,255,0.15);
-    box-shadow:0 4px 32px rgba(0,0,0,0.5);
-}
-[data-theme="light"] nav {
-    background:rgba(250,247,242,0.88);
-    border-bottom:1px solid rgba(0,0,0,0.08);
-    box-shadow:0 4px 24px rgba(0,0,0,0.06);
-}
-.logo { font-family:'Montserrat',sans-serif; font-size:15px; font-weight:900; color:var(--gold); }
-.logo span { color:var(--txt); }
-.nav-r { display:flex; gap:7px; align-items:center; }
-.ico-btn {
-    min-width:34px; height:34px; padding:0 10px;
-    border-radius:7px;
-    border:1px solid rgba(61,108,255,0.35);
-    background:rgba(61,108,255,0.10);
-    color:#a8beff;
-    font-size:13px; font-weight:800;
-    cursor:pointer;
-    display:flex; align-items:center; justify-content:center;
-    transition:all 0.2s;
-}
-.ico-btn:hover {
-    border-color:rgba(61,108,255,0.7);
-    background:rgba(61,108,255,0.18);
-    color:#c8d8ff;
-}
-[data-theme="light"] .ico-btn {
-    border:1px solid rgba(42,82,204,0.25);
-    background:rgba(42,82,204,0.07);
-    color:#2a52cc;
-}
-.nav-wa {
-    height:34px; padding:0 14px;
-    border-radius:7px; border:none;
-    background:var(--gold); color:#fff;
-    font-size:12px; font-weight:800;
-    display:inline-flex; align-items:center;
-    transition:0.2s;
-}
-.nav-wa:hover { opacity:.87; transform:translateY(-1px); }
+applyLanguage(currentLang);
 
-/* الهيرو */
-.hero {
-    min-height:100vh; padding:72px 22px 40px;
-    display:flex; flex-direction:column;
-    align-items:center; justify-content:center;
-    text-align:center; position:relative; overflow:hidden;
-}
-.hero-grid {
-    position:absolute; inset:0;
-    background-image:linear-gradient(rgba(61,108,255,0.06) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(61,108,255,0.06) 1px,transparent 1px);
-    background-size:52px 52px;
-    animation:gs 28s linear infinite;
-}
-@keyframes gs { to { transform:translateY(52px); } }
-.hero-halo {
-    position:absolute; inset:0;
-    background:radial-gradient(ellipse 55% 50% at 20% 60%, rgba(61,108,255,0.10) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 45% at 80% 30%, rgba(232,185,74,0.09) 0%, transparent 55%);
-}
-.hero-tag {
-    position:relative; z-index:2;
-    font-size:10px; font-weight:700; color:var(--gold);
-    letter-spacing:3px; text-transform:uppercase;
-    margin-bottom:24px;
-    display:flex; align-items:center; gap:12px;
-    animation:up .5s ease both;
-}
-.hero-tag::before, .hero-tag::after {
-    content:""; width:36px; height:1px;
-    background:var(--gold); opacity:.6;
-}
-.hero h1 {
-    font-size:clamp(40px,11vw,72px); font-weight:900; line-height:1.0;
-    color:var(--txt);
-    margin-bottom:16px;
-    animation:up .5s .1s ease both;
-}
-.h1-gold { color:var(--gold); font-style:italic; }
-.hero-sub {
-    font-size:12px; color:var(--muted);
-    letter-spacing:2px; text-transform:uppercase;
-    margin-bottom:32px;
-    animation:up .5s .2s ease both;
-}
-.hero-btns {
-    display:flex; gap:10px; flex-wrap:wrap; justify-content:center;
-    animation:up .5s .3s ease both;
-}
-.btn-fill {
-    background:linear-gradient(135deg, #e8b94a 0%, #f5cc55 100%);
-    color:#0d1117; border:none;
-    padding:13px 28px; border-radius:9px;
-    font-size:14px; font-weight:900;
-    box-shadow:0 4px 24px rgba(232,185,74,0.4);
-    transition:0.2s;
-    white-space:nowrap;
-}
-.btn-fill:hover { transform:translateY(-2px); box-shadow:0 8px 36px rgba(232,185,74,0.55); }
-.btn-out {
-    background:rgba(61,108,255,0.12);
-    color:#a8beff; border:1px solid rgba(61,108,255,0.5);
-    padding:13px 28px; border-radius:9px;
-    font-size:14px; font-weight:700;
-    transition:0.2s;
-}
-.btn-out:hover { background:rgba(61,108,255,0.22); transform:translateY(-2px); }
-[data-theme="light"] .btn-out {
-    background:rgba(42,82,204,0.08); color:#2a52cc; border-color:rgba(42,82,204,0.4);
-}
+/* ===== 4. Nav — يصبح مرئياً عند الـ scroll ===== */
+const mainNav = document.getElementById(‘mainNav’);
+window.addEventListener(‘scroll’, () => {
+mainNav.classList.toggle(‘scrolled’, window.scrollY > 40);
+}, { passive: true });
 
-/* الإحصائيات */
-.stats {
-    display:flex; align-items:center; gap:0;
-    margin-top:40px;
-    background:rgba(255,255,255,0.04);
-    border:1px solid rgba(255,255,255,0.1);
-    border-radius:14px; padding:18px 24px;
-    width:100%; max-width:420px;
+/* ===== 5. Scroll Reveal ===== */
+const revealObserver = new IntersectionObserver((entries) => {
+entries.forEach((entry, i) => {
+if (entry.isIntersecting) {
+setTimeout(() => entry.target.classList.add(‘on’), i * 60);
+revealObserver.unobserve(entry.target);
 }
-[data-theme="light"] .stats { background:rgba(0,0,0,0.04); border-color:rgba(0,0,0,0.08); }
-.stat-item { flex:1; text-align:center; }
-.stat-div { width:1px; height:32px; background:rgba(255,255,255,0.1); }
-.stn { font-size:22px; font-weight:900; color:var(--gold); line-height:1; }
-.stl { font-size:9px; color:var(--faint); margin-top:3px; letter-spacing:.5px; }
+});
+}, { threshold: 0.08 });
 
-.scroll-hint {
-    position:absolute; bottom:24px; left:50%; transform:translateX(-50%);
-}
-.scroll-line {
-    width:1px; height:40px;
-    background:linear-gradient(to bottom, var(--gold), transparent);
-    margin:0 auto;
-    animation:scrollpulse 2s ease infinite;
-}
-@keyframes scrollpulse { 50%{ opacity:1; transform:scaleY(1.2); } }
-@keyframes up {
-    from { opacity:0; transform:translateY(20px); }
-    to { opacity:1; transform:translateY(0); }
-}
+document.querySelectorAll(’.rv’).forEach(el => revealObserver.observe(el));
 
-/* الأقسام */
-.sec { max-width:840px; margin:0 auto; padding:48px 20px; }
-.lbl {
-    font-size:10px; font-weight:800; letter-spacing:3px; text-transform:uppercase;
-    color:var(--gold); display:flex; align-items:center; gap:9px; margin-bottom:8px;
-}
-.lbl::before { content:""; width:18px; height:2px; background:var(--gold); border-radius:2px; }
-.sec-h { font-size:clamp(20px,5vw,32px); font-weight:900; margin-bottom:9px; line-height:1.2; color:var(--txt); }
-.sec-p { font-size:13px; color:var(--muted); line-height:1.8; max-width:450px; margin-bottom:32px; }
+/* ===== 6. Smooth Scroll ===== */
+document.querySelectorAll(‘a[href^=”#”]’).forEach(anchor => {
+anchor.addEventListener(‘click’, function (e) {
+e.preventDefault();
+const target = document.querySelector(this.getAttribute(‘href’));
+if (target) target.scrollIntoView({ behavior: ‘smooth’, block: ‘start’ });
+});
+});
 
-/* المشاريع */
-.pg { display:flex; flex-direction:column; gap:16px; }
-.pc {
-    background:var(--surf); border:1px solid rgba(255,255,255,0.12);
-    border-radius:14px; overflow:hidden;
-    box-shadow:0 2px 0 rgba(255,255,255,0.05), 0 8px 32px rgba(0,0,0,0.6);
-    transition:0.28s;
+/* ===== 7. أنيميشن دخول بطاقات الخدمات (stagger خفيف) ===== */
+const cardObserver = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+const cards = entry.target.querySelectorAll(’.srv-card, .why-card, .pc’);
+cards.forEach((card, i) => {
+card.style.animationDelay = `${i * 0.07}s`;
+card.classList.add(‘card-visible’);
+});
+cardObserver.unobserve(entry.target);
 }
-.pc:hover { transform:translateY(-4px); border-color:var(--gline); box-shadow:0 20px 48px rgba(0,0,0,.15); }
-.pi {
-    width:100%; height:185px; position:relative; overflow:hidden;
-    background:var(--surf2);
-    border-bottom:1px solid rgba(255,255,255,0.08);
-}
-.pi img { width:100%; height:100%; object-fit:cover; filter:brightness(.87); transition:0.38s; }
-.pc:hover .pi img { transform:scale(1.04); filter:brightness(1); }
-.pi-ov {
-    position:absolute; inset:0;
-    background:linear-gradient(to bottom, transparent 40%, rgba(0,0,0,.5) 100%);
-}
-.pi-ph {
-    width:100%; height:185px;
-    display:none; flex-direction:column;
-    align-items:center; justify-content:center; gap:7px;
-    color:var(--faint); background:var(--surf2);
-}
-.pi-ph-ic { font-size:30px; opacity:.35; }
-.pt {
-    position:absolute; top:11px; right:11px;
-    background:var(--gold); color:#fff;
-    font-size:9px; font-weight:800; padding:3px 8px;
-    border-radius:99px; letter-spacing:1px; text-transform:uppercase;
-}
-.pb { padding:16px 18px; }
-.pn { font-size:10px; color:var(--gold); font-weight:700; letter-spacing:2px; margin-bottom:4px; }
-.ph { font-size:16px; font-weight:800; margin-bottom:6px; color:var(--txt); }
-.pd { font-size:12px; color:var(--muted); line-height:1.7; margin-bottom:12px; }
-.pf { display:flex; align-items:center; justify-content:space-between; }
-.tgs { display:flex; gap:5px; flex-wrap:wrap; }
-.tg {
-    font-size:9px; padding:3px 9px; border-radius:99px; font-weight:800;
-    background:rgba(34,197,94,0.12); border:1px solid rgba(34,197,94,0.35); color:#4ade80;
-}
-[data-theme="light"] .tg { background:rgba(21,128,61,0.08); border-color:rgba(21,128,61,0.25); color:#166534; }
-.vb {
-    display:inline-flex; align-items:center; gap:5px;
-    color:var(--gold); font-size:11px; font-weight:800;
-    padding:5px 11px; border:1px solid var(--gline); border-radius:6px;
-    transition:background 0.2s;
-}
-.vb:hover { background:var(--gdim); }
+});
+}, { threshold: 0.1 });
 
-/* الخدمات */
-.sg { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
-.sc {
-    background:var(--surf); border:1px solid rgba(255,255,255,0.12);
-    border-radius:12px; padding:17px;
-    box-shadow:0 2px 0 rgba(255,255,255,0.04), 0 6px 24px rgba(0,0,0,0.5);
-    transition:0.22s;
-}
-.sc:hover { border-color:var(--gline); transform:translateY(-2px); }
-[data-theme="dark"] .sc { border-right:3px solid rgba(61,108,255,0.4); }
-[data-theme="light"] .sc { border-right:3px solid rgba(184,122,26,0.4); }
-.si { font-size:21px; margin-bottom:8px; }
-.sn { font-size:13px; font-weight:800; margin-bottom:3px; color:var(--txt); }
-.sd { font-size:11px; color:var(--muted); line-height:1.6; }
-
-/* الأسعار */
-.prg { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
-.prc {
-    background:var(--surf); border:1px solid rgba(255,255,255,0.12);
-    border-radius:13px; padding:24px; position:relative;
-    box-shadow:0 2px 0 rgba(255,255,255,0.04), 0 8px 32px rgba(0,0,0,0.5);
-    transition:transform 0.22s;
-}
-.prc:hover { transform:translateY(-3px); }
-.prc.hot {
-    border-color:var(--gold);
-    background:linear-gradient(135deg, rgba(232,185,74,0.08) 0%, var(--surf) 60%);
-    box-shadow:0 0 0 1px rgba(232,185,74,0.2), 0 12px 48px rgba(0,0,0,0.4);
-}
-.hot-lbl {
-    position:absolute; top:-10px; right:20px;
-    background:var(--gold); color:#fff;
-    font-size:9px; font-weight:900; padding:3px 11px;
-    border-radius:99px; letter-spacing:1px;
-}
-.pr-nm { font-size:11px; font-weight:700; color:var(--muted); letter-spacing:1.5px; text-transform:uppercase; margin-bottom:5px; }
-.pr-am { font-size:34px; font-weight:900; line-height:1; margin-bottom:3px; color:var(--txt); display:flex; align-items:center; justify-content:center; gap:10px; }
-.old-price { font-size:20px; text-decoration:line-through; color:#ff6b6b; opacity:0.8; }
-.pr-am sub { font-size:13px; font-weight:400; color:var(--muted); }
-.pr-nt { font-size:11px; color:var(--gold); font-weight:600; margin-bottom:14px; }
-.pr-ln { height:1px; background:var(--line); margin-bottom:14px; }
-.pr-ul { list-style:none; display:flex; flex-direction:column; gap:7px; margin-bottom:18px; }
-.pr-ul li { display:flex; align-items:flex-start; gap:7px; font-size:12px; color:var(--muted); line-height:1.5; }
-.pr-ul li::before { content:"✓"; color:var(--gold); font-weight:900; }
-.pr-ul li.no { opacity:.32; }
-.pr-ul li.no::before { content:"✕"; color:var(--faint); }
-
-.btn-g, .btn-l {
-    width:100%; padding:12px; border-radius:8px;
-    font-size:13px; font-weight:800; display:block; text-align:center;
-    transition:opacity 0.2s, border-color 0.2s;
-}
-.btn-g { background:var(--gold); color:#fff; border:none; }
-.btn-g:hover { opacity:.85; }
-.btn-l { background:transparent; color:var(--txt); border:1px solid var(--line); }
-.btn-l:hover { border-color:var(--gold); color:var(--gold); }
-
-/* الخدمات الإضافية */
-.ext-box {
-    background:var(--surf); border:1px solid rgba(255,255,255,0.12);
-    border-radius:12px; padding:18px; margin-top:14px;
-    box-shadow:0 2px 0 rgba(255,255,255,0.04), 0 6px 24px rgba(0,0,0,0.5);
-}
-.ext-hd { font-size:10px; font-weight:800; letter-spacing:2px; color:var(--gold); text-transform:uppercase; margin-bottom:12px; }
-.ext-g { display:grid; grid-template-columns:1fr 1fr; }
-.ext-r {
-    display:flex; justify-content:space-between; align-items:center;
-    padding:8px 0; border-bottom:1px solid var(--line); font-size:12px; color:var(--txt);
-}
-.ext-p { font-size:12px; font-weight:700; color:var(--gold); }
-
-/* CTA */
-.ctab { max-width:820px; margin:0 auto 60px; padding:0 20px; }
-.ctab-inner {
-    background:var(--surf); border:1px solid var(--gline);
-    border-radius:18px; padding:44px 24px; text-align:center;
-    position:relative; overflow:hidden;
-    box-shadow:0 2px 0 rgba(255,255,255,0.04), 0 8px 40px rgba(0,0,0,0.6);
-}
-.cta-halo {
-    position:absolute; top:0; left:50%; transform:translateX(-50%);
-    width:280px; height:180px;
-    background:radial-gradient(ellipse at top, var(--gdim), transparent 70%);
-}
-.wa-btn {
-    display:inline-flex; align-items:center; gap:9px;
-    background:#25d366; color:#fff; border:none;
-    padding:13px 28px; border-radius:10px;
-    font-size:14px; font-weight:800; cursor:pointer;
-    box-shadow:0 4px 18px rgba(37,211,102,.26);
-    transition:0.2s;
-}
-.wa-btn:hover { opacity:.9; transform:translateY(-2px); }
-.wa-ic { width:20px; height:20px; fill:white; }
-.cta-nt { margin-top:11px; font-size:11px; color:var(--faint); }
-
-/* التذييل */
-footer {
-    background:var(--surf); border-top:1px solid rgba(255,255,255,0.12);
-    padding:26px 20px 76px; text-align:center;
-}
-.fl { font-family:'Montserrat',sans-serif; font-size:16px; font-weight:900; color:var(--gold); margin-bottom:4px; }
-.fs { font-size:11px; color:var(--faint); margin-bottom:16px; }
-.flinks, .fpol { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-bottom:10px; }
-.flink { font-size:11px; color:var(--muted); font-weight:600; transition:color 0.2s; }
-.flink:hover { color:var(--gold); }
-.fcopy { font-size:10px; color:var(--faint); margin-top:4px; }
-
-/* زر الواتساب الثابت */
-.float {
-    position:fixed; bottom:16px; left:50%; transform:translateX(-50%);
-    display:inline-flex; align-items:center; gap:8px;
-    background:var(--surf2); color:var(--txt);
-    border:1.5px solid var(--gline);
-    padding:10px 22px; border-radius:99px;
-    font-size:12px; font-weight:800; white-space:nowrap;
-    box-shadow:0 4px 20px rgba(0,0,0,.18);
-    transition:0.2s;
-}
-.float:hover { border-color:var(--gold); background:var(--surf2); }
-.ldot { width:7px; height:7px; border-radius:50%; background:#25d366; animation:pulse 2s infinite; }
-
-/* Scroll reveal */
-.rv { opacity:0; transform:translateY(22px); transition:opacity .55s, transform .55s; }
-.rv.on { opacity:1; transform:translateY(0); }
-
-/* تحسينات الجوال */
-@media(max-width:540px){
-    .sg { grid-template-columns:1fr; }
-    .ext-g { grid-template-columns:1fr; }
-    .stats { gap:18px; }
-    .prg { grid-template-columns:1fr; }
-    .pr-am { flex-direction:column; gap:5px; }
-}
-/* ===== نجوم الهيرو ===== */
-.hero-stars {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  z-index: 0;
-}
-.star {
-  position: absolute;
-  border-radius: 50%;
-  background: white;
-  animation: twinkle var(--d) ease-in-out infinite;
-  opacity: 0;
-}
-@keyframes twinkle {
-  0%, 100% { opacity: 0; transform: scale(0.8); }
-  50% { opacity: var(--op); transform: scale(1.2); }
-}
-
-/* ===== أيقونات التقنيات ===== */
-.tech-icons {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 24px 0;
-  position: relative;
-  z-index: 2;
-}
-.tech-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  transition: transform 0.2s;
-}
-.tech-icon:hover {
-  transform: translateY(-4px) scale(1.1);
-}
-
-/* ===== زر الهاتف ===== */
-.btn-phone {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--gold);
-  color: #000;
-  padding: 13px 22px;
-  border-radius: 99px;
-  font-size: 14px;
-  font-weight: 900;
-  transition: 0.2s;
-  box-shadow: 0 4px 20px rgba(232,185,74,0.4);
-}
-.btn-phone:hover {
-  transform: translateY(-2px);
-  opacity: 0.9;
-}
-
-/* ===== Carousel الخدمات ===== */
-.services-carousel {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-  margin-top: 20px;
-}
-.srv-card {
-  background: var(--surf);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 16px;
-  padding: 24px 16px;
-  text-align: center;
-  transition: 0.25s;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-}
-.srv-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--gline);
-}
-.srv-ico-wrap {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background: var(--gold);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 14px;
-  box-shadow: 0 4px 16px rgba(232,185,74,0.3);
-}
-.srv-ico {
-  font-size: 28px;
-}
-.srv-name {
-  font-size: 13px;
-  font-weight: 800;
-  margin-bottom: 6px;
-  color: var(--txt);
-}
-.srv-desc {
-  font-size: 11px;
-  color: var(--muted);
-  line-height: 1.6;
-}
-.carousel-dots {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 20px;
-}
-.cdot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--faint);
-  transition: 0.3s;
-}
-.cdot.active {
-  background: var(--gold);
-  width: 28px;
-  border-radius: 5px;
-}
-
-/* ===== لماذا أنا ===== */
-.why-sec {
-  background: var(--surf);
-  border-top: 1px solid rgba(255,255,255,0.06);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-  padding: 20px 0;
-}
-[data-theme="light"] .why-sec {
-  background: #f5f0e8;
-}
-.why-title {
-  font-size: clamp(24px, 6vw, 36px);
-  font-weight: 900;
-  text-align: center;
-  margin-bottom: 28px;
-  color: var(--txt);
-}
-.why-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-}
-.why-card {
-  background: var(--bg);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 14px;
-  padding: 20px 14px;
-  text-align: center;
-  transition: 0.25s;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.2);
-}
-[data-theme="light"] .why-card {
-  background: white;
-  border-color: rgba(0,0,0,0.06);
-}
-.why-card:hover {
-  transform: translateY(-3px);
-  border-color: var(--gline);
-}
-.why-ico-wrap {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: var(--gold);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 10px;
-  box-shadow: 0 4px 14px rgba(232,185,74,0.3);
-}
-.why-ico {
-  font-size: 24px;
-  font-style: normal;
-}
-.why-name {
-  font-size: 12px;
-  font-weight: 800;
-  color: var(--txt);
-}
-/* ===== NAV جديد ===== */
-.nav-links {
-  display: flex;
-  gap: 28px;
-}
-.nav-links a {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--muted);
-  text-decoration: none;
-  transition: color 0.2s;
-  position: relative;
-  padding-bottom: 3px;
-}
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 0;
-  height: 2px;
-  background: var(--gold);
-  transition: width 0.3s;
-}
-.nav-links a:hover {
-  color: var(--txt);
-}
-.nav-links a:hover::after {
-  width: 100%;
-}
-
-/* ===== أزرار الثيم واللغة ===== */
-.theme-toggle {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 1.5px solid var(--line);
-  background: var(--surf2);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  transition: all 0.2s;
-}
-.theme-toggle:hover {
-  border-color: var(--gold);
-  transform: rotate(20deg);
-}
-
-.lang-toggle {
-  height: 36px;
-  padding: 0 12px;
-  border-radius: 18px;
-  border: 1.5px solid var(--line);
-  background: var(--surf2);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--txt);
-  transition: all 0.2s;
-}
-.lang-toggle:hover {
-  border-color: var(--gold);
-  color: var(--gold);
-}
-.lang-icon { font-size: 14px; }
-
-/* ===== Hero Badge ===== */
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--surf);
-  border: 1px solid var(--line);
-  padding: 7px 16px;
-  border-radius: 99px;
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--muted);
-  margin-bottom: 24px;
-  position: relative;
-  z-index: 2;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-}
-.badge-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #22c55e;
-  animation: pulse 2s infinite;
-}
-@keyframes pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.4); }
-  50% { box-shadow: 0 0 0 6px rgba(34,197,94,0); }
-}
-
-/* ===== أيقونات التقنيات ===== */
-.tech-icons {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 20px 0 28px;
-  position: relative;
-  z-index: 2;
-}
-.tech-icon {
-  width: 46px;
-  height: 46px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.15);
-  transition: transform 0.2s;
-  cursor: default;
-}
-.tech-icon:hover { transform: translateY(-4px) scale(1.1); }
-
-/* ===== زر الهاتف ===== */
-.btn-phone {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--gold);
-  color: #000 !important;
-  padding: 12px 22px;
-  border-radius: 99px;
-  font-size: 14px;
-  font-weight: 900;
-  transition: 0.2s;
-  box-shadow: 0 4px 20px rgba(232,185,74,0.35);
-  unicode-bidi: embed;
-  direction: ltr;
-}
-.btn-phone:hover { transform: translateY(-2px); opacity: 0.9; }
-.btn-phone svg { fill: #000; }
-
-/* ===== الخدمات ===== */
-.srv-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-  margin-top: 20px;
-}
-.srv-card {
-  background: var(--surf);
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  padding: 28px 16px;
-  text-align: center;
-  transition: 0.25s;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.05);
-}
-.srv-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--gline);
-  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-}
-.srv-ico-wrap {
-  width: 68px;
-  height: 68px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--gold), #f5cc55);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 14px;
-  box-shadow: 0 6px 20px rgba(232,185,74,0.35);
-}
-.srv-name {
-  font-size: 13px;
-  font-weight: 800;
-  margin-bottom: 7px;
-  color: var(--txt);
-}
-.srv-desc {
-  font-size: 11px;
-  color: var(--muted);
-  line-height: 1.6;
-}
-
-/* ===== لماذا أنا ===== */
-.why-sec {
-  background: var(--surf2);
-  padding: 48px 0;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-}
-[data-theme="dark"] .why-sec { background: var(--surf); }
-.why-title {
-  font-size: clamp(24px, 6vw, 36px);
-  font-weight: 900;
-  text-align: center;
-  color: var(--txt);
-}
-.why-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-}
-.why-card {
-  background: var(--surf);
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  padding: 24px 14px;
-  text-align: center;
-  transition: 0.25s;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
-}
-[data-theme="dark"] .why-card { background: var(--bg); }
-.why-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--gline);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-}
-.why-ico-wrap {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--gold), #f5cc55);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 12px;
-  box-shadow: 0 4px 16px rgba(232,185,74,0.3);
-}
-.why-name {
-  font-size: 13px;
-  font-weight: 800;
-  color: var(--txt);
-}
-
-/* ===== نجوم الهيرو ===== */
-.hero-stars {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  z-index: 0;
-}
-.star {
-  position: absolute;
-  border-radius: 50%;
-  background: white;
-  animation: twinkle var(--d) ease-in-out infinite;
-  opacity: 0;
-}
-[data-theme="light"] .star { background: #666; }
-@keyframes twinkle {
-  0%, 100% { opacity: 0; transform: scale(0.8); }
-  50% { opacity: var(--op); transform: scale(1.2); }
-}
-
-/* ===== موقع حقيقي — تحسينات عامة ===== */
-.sec {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 64px 24px;
-}
-.hero { min-height: 100vh; }
-
-@media(max-width: 540px) {
-  .nav-links { display: none; }
-  .srv-grid { grid-template-columns: 1fr 1fr; }
-  .why-grid { grid-template-columns: 1fr 1fr; }
-  .prg { grid-template-columns: 1fr; }
-}
+document.querySelectorAll(’.srv-grid, .why-grid, .pg’).forEach(grid => {
+cardObserver.observe(grid);
+});
