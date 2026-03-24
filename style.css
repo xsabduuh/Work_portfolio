@@ -385,3 +385,188 @@ footer {
     .prg { grid-template-columns:1fr; }
     .pr-am { flex-direction:column; gap:5px; }
 }
+/* ===== نجوم الهيرو ===== */
+.hero-stars {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+.star {
+  position: absolute;
+  border-radius: 50%;
+  background: white;
+  animation: twinkle var(--d) ease-in-out infinite;
+  opacity: 0;
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0; transform: scale(0.8); }
+  50% { opacity: var(--op); transform: scale(1.2); }
+}
+
+/* ===== أيقونات التقنيات ===== */
+.tech-icons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 24px 0;
+  position: relative;
+  z-index: 2;
+}
+.tech-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: transform 0.2s;
+}
+.tech-icon:hover {
+  transform: translateY(-4px) scale(1.1);
+}
+
+/* ===== زر الهاتف ===== */
+.btn-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--gold);
+  color: #000;
+  padding: 13px 22px;
+  border-radius: 99px;
+  font-size: 14px;
+  font-weight: 900;
+  transition: 0.2s;
+  box-shadow: 0 4px 20px rgba(232,185,74,0.4);
+}
+.btn-phone:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+/* ===== Carousel الخدمات ===== */
+.services-carousel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 20px;
+}
+.srv-card {
+  background: var(--surf);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 24px 16px;
+  text-align: center;
+  transition: 0.25s;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+.srv-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--gline);
+}
+.srv-ico-wrap {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 14px;
+  box-shadow: 0 4px 16px rgba(232,185,74,0.3);
+}
+.srv-ico {
+  font-size: 28px;
+}
+.srv-name {
+  font-size: 13px;
+  font-weight: 800;
+  margin-bottom: 6px;
+  color: var(--txt);
+}
+.srv-desc {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+.cdot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--faint);
+  transition: 0.3s;
+}
+.cdot.active {
+  background: var(--gold);
+  width: 28px;
+  border-radius: 5px;
+}
+
+/* ===== لماذا أنا ===== */
+.why-sec {
+  background: var(--surf);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  padding: 20px 0;
+}
+[data-theme="light"] .why-sec {
+  background: #f5f0e8;
+}
+.why-title {
+  font-size: clamp(24px, 6vw, 36px);
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 28px;
+  color: var(--txt);
+}
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.why-card {
+  background: var(--bg);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 20px 14px;
+  text-align: center;
+  transition: 0.25s;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+}
+[data-theme="light"] .why-card {
+  background: white;
+  border-color: rgba(0,0,0,0.06);
+}
+.why-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--gline);
+}
+.why-ico-wrap {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 10px;
+  box-shadow: 0 4px 14px rgba(232,185,74,0.3);
+}
+.why-ico {
+  font-size: 24px;
+  font-style: normal;
+}
+.why-name {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--txt);
+}
