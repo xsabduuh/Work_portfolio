@@ -303,11 +303,11 @@ footer { background:var(--surf); border-top:1px solid var(--line); padding:32px 
   .tech-icon  { width: 40px; height: 40px; }
 }
 
-/* ========== بطاقات "لماذا" القابلة للطيّ ========== */
+/* ========== بطاقات "لماذا" القابلة للطيّ ========== *//* ========== بطاقات "لماذا" القابلة للطيّ ========== */
 .why-card {
   cursor: pointer;
-  transition: all 0.25s ease;
   position: relative;
+  transition: all 0.25s ease;
 }
 
 .why-desc {
@@ -323,12 +323,12 @@ footer { background:var(--surf); border-top:1px solid var(--line); padding:32px 
 }
 
 .why-card.open .why-desc {
-  max-height: 150px; /* يكفي للنصوص الحالية */
+  max-height: 150px;  /* يكفي للنصوص الموجودة */
   padding-top: 8px;
   padding-bottom: 4px;
 }
 
-/* إضافة سهم صغير للإشارة إلى قابلية النقر */
+/* السهم الصغير */
 .why-card::after {
   content: "▼";
   font-size: 10px;
@@ -337,6 +337,7 @@ footer { background:var(--surf); border-top:1px solid var(--line); padding:32px 
   bottom: 12px;
   left: 12px;
   transition: transform 0.2s;
+  pointer-events: none; /* لضمان عدم اعتراض النقر على البطاقة */
 }
 
 .why-card.open::after {
