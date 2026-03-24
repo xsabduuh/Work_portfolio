@@ -739,7 +739,6 @@ const translations = {
 let currentLang = localStorage.getItem('lang') || 'ar';
 
 function applyLanguage(lang) {
-  console.log('applyLanguage called for', lang, translations[lang]);
   const t = translations[lang];
   if (!t) return;
   const dir = lang === 'ar' ? 'rtl' : 'ltr';
