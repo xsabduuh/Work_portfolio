@@ -114,7 +114,7 @@ const translations = {
 
     // CTA
     cta_title: 'جاهز تبدأ مشروعك؟ 🚀',
-    cta_desc:  'تواصل معي الآن —.',
+    cta_desc:  'تواصل معي الآن ',
     cta_btn:   'واتساب',
     cta_ig:    'إنستغرام',
 
