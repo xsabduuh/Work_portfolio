@@ -773,14 +773,6 @@ highlightActiveFooterLink();
 /* ===== 10. تفعيل طيّ بطاقات "لماذا" ===== */
 document.querySelectorAll('.why-card').forEach(card => {
   card.addEventListener('click', function(e) {
-    // منع التنفيذ إذا تم النقر على رابط داخل البطاقة (ليس موجوداً)
-    this.classList.toggle('open');
-  });
-});
-
-/* ===== 11. تفعيل طيّ بطاقات "لماذا" ===== */
-document.querySelectorAll('.why-card').forEach(card => {
-  card.addEventListener('click', function(e) {
     this.classList.toggle('open');
   });
 });
