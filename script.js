@@ -24,6 +24,12 @@ siteforge.ma — script.js
   container.appendChild(fragment);
 })();
 
+/* ===== مساعدة: التحقق من وجود وسم HTML ===== */
+function containsHTML(str) {
+  if (!str) return false;
+  return /<[^>]*>/.test(str);
+}
+
 /* ===== 2. الترجمات (AR / EN / FR) ===== */
 const translations = {
   ar: {
@@ -746,7 +752,14 @@ function applyLanguage(lang) {
   document.body.dir = dir;
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
-    if (t[key] !== undefined) el.textContent = t[key];
+    const value = t[key];
+    if (value !== undefined) {
+      if (containsHTML(value)) {
+        el.innerHTML = value;
+      } else {
+        el.textContent = value;
+      }
+    }
   });
   document.querySelectorAll('.lang-opt').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.lang === lang);
