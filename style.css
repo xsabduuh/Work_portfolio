@@ -941,3 +941,12 @@ footer {
   .tech-icons { gap: 8px; }
   .tech-icon  { width: 40px; height: 40px; }
 }
+/* إجبار الوضع النهاري على الصفحات القانونية */
+body {
+  background: #faf7f2 !important;
+  color: #1c1409 !important;
+}
+.legal-container {
+  background: #ffffff !important;
+  border-color: rgba(0,0,0,0.08) !important;
+}
