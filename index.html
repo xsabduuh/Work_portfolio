@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Playfair+Display:ital,wght@1,700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Playfair+Display:ital,wght@1,700&family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
 </head>
 <body data-theme="light">
 
@@ -35,44 +35,38 @@
 
 <section class="hero">
   <div class="hero-stars" id="heroStars"></div>
-  <div class="hero-halo"></div>
-  <div class="hero-grid"></div>
-
-  <div class="hero-badge rv">
-    <span class="badge-dot"></span>
-    <span data-i18n="hero_tag">مطور مواقع</span>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-badge rv">
+      <span class="badge-dot"></span>
+      <span data-i18n="hero_tag">مطور مواقع</span>
+    </div>
+    <h1 class="rv">
+      <span data-i18n="hero_line1">موقع مصمم خصيصاً لك،</span><br>
+      <span class="h1-gold" data-i18n="hero_line2">يعكس مشروعك ويجذب العملاء</span>
+    </h1>
+    <p class="hero-sub rv" data-i18n="hero_sub">تصميم احترافي · تسليم سريع · نتائج حقيقية</p>
+    <div class="tech-icons rv">
+      <div class="tech-icon ti-html" title="HTML5"><svg viewBox="0 0 24 24" fill="white" width="21" height="21"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/></svg></div>
+      <div class="tech-icon ti-css" title="CSS3"><svg viewBox="0 0 24 24" fill="white" width="21" height="21"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.002-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z"/></svg></div>
+      <div class="tech-icon ti-js" title="JavaScript"><svg viewBox="0 0 24 24" fill="white" width="21" height="21"><path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/></svg></div>
+      <div class="tech-icon ti-github" title="GitHub"><svg viewBox="0 0 24 24" fill="white" width="21" height="21"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg></div>
+      <div class="tech-icon ti-tailwind" title="Tailwind CSS"><svg viewBox="0 0 24 24" fill="white" width="21" height="21"><path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z"/></svg></div>
+      <div class="tech-icon ti-netlify" title="Netlify"><svg viewBox="0 0 128 128" fill="white" width="21" height="21"><path d="M78.25 48.21l-4.48 4.48-15.13-15.13 4.48-4.48a10.68 10.68 0 0115.13 15.13zM35.13 79.79l4.48-4.48 15.13 15.13-4.48 4.48a10.68 10.68 0 01-15.13-15.13zm7.54-32.12L64 70l21.33-22.33A30.06 30.06 0 0064 34a30.06 30.06 0 00-21.33 13.67zM64 94a30.06 30.06 0 0021.33-13.67L64 58l-21.33 22.33A30.06 30.06 0 0064 94z"/></svg></div>
+    </div>
+    <div class="hero-btns rv">
+      <a href="https://wa.me/212680916653" target="_blank" rel="noopener noreferrer" class="btn-phone" dir="ltr"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>+212 680 916 653</a>
+      <a href="https://wa.me/212680916653?text=بغيت نطلب موقع" target="_blank" rel="noopener noreferrer" class="btn-fill" data-i18n="hero_cta">ابدأ مشروعك ←</a>
+      <a href="#projects" class="btn-out" data-i18n="hero_work">مشاهدة الأعمال</a>
+    </div>
+    <div class="stats rv">
+      <div class="stat-item"><div class="stn">48h</div><div class="stl" data-i18n="stat_delivery">تسليم سريع</div></div>
+      <div class="stat-div"></div>
+      <div class="stat-item"><div class="stn">✓</div><div class="stl" data-i18n="stat_support">دعم بعد التسليم</div></div>
+      <div class="stat-div"></div>
+      <div class="stat-item"><div class="stn">★</div><div class="stl" data-i18n="stat_quality">ضمان الجودة</div></div>
+    </div>
   </div>
-
-  <h1 class="rv">
-    <span data-i18n="hero_line1">موقع مصمم خصيصاً لك،</span><br>
-    <span class="h1-gold" data-i18n="hero_line2">يعكس مشروعك ويجذب العملاء</span>
-  </h1>
-
-  <p class="hero-sub rv" data-i18n="hero_sub">تصميم احترافي · تسليم سريع · نتائج حقيقية</p>
-
-  <div class="tech-icons rv">
-    <div class="tech-icon ti-html" title="HTML5"><svg viewBox="0 0 24 24" fill="white" width="21" height="21"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/></svg></div>
-    <div class="tech-icon ti-css" title="CSS3"><svg viewBox="0 0 24 24" fill="white" width="21" height="21"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.002-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z"/></svg></div>
-    <div class="tech-icon ti-js" title="JavaScript"><svg viewBox="0 0 24 24" fill="white" width="21" height="21"><path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/></svg></div>
-    <div class="tech-icon ti-github" title="GitHub"><svg viewBox="0 0 24 24" fill="white" width="21" height="21"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg></div>
-    <div class="tech-icon ti-tailwind" title="Tailwind CSS"><svg viewBox="0 0 24 24" fill="white" width="21" height="21"><path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z"/></svg></div>
-    <div class="tech-icon ti-netlify" title="Netlify"><svg viewBox="0 0 128 128" fill="white" width="21" height="21"><path d="M78.25 48.21l-4.48 4.48-15.13-15.13 4.48-4.48a10.68 10.68 0 0115.13 15.13zM35.13 79.79l4.48-4.48 15.13 15.13-4.48 4.48a10.68 10.68 0 01-15.13-15.13zm7.54-32.12L64 70l21.33-22.33A30.06 30.06 0 0064 34a30.06 30.06 0 00-21.33 13.67zM64 94a30.06 30.06 0 0021.33-13.67L64 58l-21.33 22.33A30.06 30.06 0 0064 94z"/></svg></div>
-  </div>
-
-  <div class="hero-btns rv">
-    <a href="https://wa.me/212680916653" target="_blank" rel="noopener noreferrer" class="btn-phone" dir="ltr"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>+212 680 916 653</a>
-    <a href="https://wa.me/212680916653?text=بغيت نطلب موقع" target="_blank" rel="noopener noreferrer" class="btn-fill" data-i18n="hero_cta">ابدأ مشروعك ←</a>
-    <a href="#projects" class="btn-out" data-i18n="hero_work">مشاهدة الأعمال</a>
-  </div>
-
-  <div class="stats rv">
-    <div class="stat-item"><div class="stn">48h</div><div class="stl" data-i18n="stat_delivery">تسليم سريع</div></div>
-    <div class="stat-div"></div>
-    <div class="stat-item"><div class="stn">✓</div><div class="stl" data-i18n="stat_support">دعم بعد التسليم</div></div>
-    <div class="stat-div"></div>
-    <div class="stat-item"><div class="stn">★</div><div class="stl" data-i18n="stat_quality">ضمان الجودة</div></div>
-  </div>
-
   <div class="scroll-hint"><div class="scroll-line"></div></div>
 </section>
 
@@ -142,7 +136,7 @@
   <div class="pg">
     <div class="pc rv"><div class="pi"><img src="books.JPG" alt="مكتبة النور" onerror="this.style.display='none';this.parentElement.querySelector('.pi-ph').style.display='flex'"><div class="pi-ph"><div class="pi-ph-ic">📚</div></div><div class="pi-ov"></div><span class="pt" data-i18n="project1_tag">متجر</span></div><div class="pb"><div class="pn" data-i18n="project1_number">01 — مكتبة</div><div class="ph" data-i18n="project1_title">مكتبة النور</div><div class="pd" data-i18n="project1_desc">موقع مكتبة إلكترونية مخصص لبيع الكتب أونلاين.</div><div class="pf"><div class="tgs"><span class="tg">HTML</span><span class="tg">CSS</span><span class="tg">JS</span></div><a href="https://xsabduuh.github.io/Books_store/" target="_blank" rel="noopener noreferrer" class="vb" data-i18n="view">عرض ←</a></div></div></div>
     <div class="pc rv"><div class="pi"><img src="parfume.JPG" alt="متجر العطور" onerror="this.style.display='none';this.parentElement.querySelector('.pi-ph').style.display='flex'"><div class="pi-ph"><div class="pi-ph-ic">🌹</div></div><div class="pi-ov"></div><span class="pt" data-i18n="project2_tag">متجر</span></div><div class="pb"><div class="pn" data-i18n="project2_number">02 — عطور</div><div class="ph" data-i18n="project2_title">متجر العطور</div><div class="pd" data-i18n="project2_desc">متجر عطور بتصميم أنيق يبرز جمالية المنتجات.</div><div class="pf"><div class="tgs"><span class="tg">HTML</span><span class="tg">CSS</span><span class="tg">JS</span></div><a href="https://xsabduuh.github.io/Parfume_store/" target="_blank" rel="noopener noreferrer" class="vb" data-i18n="view">عرض ←</a></div></div></div>
-    <div class="pc rv"><div class="pi"><img src="Business .JPG" alt="دورة تسويق" onerror="this.style.display='none';this.parentElement.querySelector('.pi-ph').style.display='flex'"><div class="pi-ph"><div class="pi-ph-ic">🎯</div></div><div class="pi-ov"></div><span class="pt" data-i18n="project3_tag">صفحة بيع</span></div><div class="pb"><div class="pn" data-i18n="project3_number">03 — تسويق</div><div class="ph" data-i18n="project3_title">دورة تسويق رقمي</div><div class="pd" data-i18n="project3_desc">موقع احترافي لعرض دورة في التسويق الرقمي.</div><div class="pf"><div class="tgs"><span class="tg">HTML</span><span class="tg">CSS</span><span class="tg">JS</span></div><a href="https://xsabduuh.github.io/marketing-course-sales-page/" target="_blank" rel="noopener noreferrer" class="vb" data-i18n="view">عرض ←</a></div></div></div>
+    <div class="pc rv"><div class="pi"><img src="Business.JPG" alt="دورة تسويق" onerror="this.style.display='none';this.parentElement.querySelector('.pi-ph').style.display='flex'"><div class="pi-ph"><div class="pi-ph-ic">🎯</div></div><div class="pi-ov"></div><span class="pt" data-i18n="project3_tag">صفحة بيع</span></div><div class="pb"><div class="pn" data-i18n="project3_number">03 — تسويق</div><div class="ph" data-i18n="project3_title">دورة تسويق رقمي</div><div class="pd" data-i18n="project3_desc">موقع احترافي لعرض دورة في التسويق الرقمي.</div><div class="pf"><div class="tgs"><span class="tg">HTML</span><span class="tg">CSS</span><span class="tg">JS</span></div><a href="https://xsabduuh.github.io/marketing-course-sales-page/" target="_blank" rel="noopener noreferrer" class="vb" data-i18n="view">عرض ←</a></div></div></div>
     <div class="pc rv"><div class="pi"><img src="Cooks.JPG" alt="مطعم أطلس" onerror="this.style.display='none';this.parentElement.querySelector('.pi-ph').style.display='flex'"><div class="pi-ph"><div class="pi-ph-ic">🍽️</div></div><div class="pi-ov"></div><span class="pt" data-i18n="project4_tag">مطعم</span></div><div class="pb"><div class="pn" data-i18n="project4_number">04 — مطعم</div><div class="ph" data-i18n="project4_title">مطعم أطلس</div><div class="pd" data-i18n="project4_desc">موقع مطعم يعرض المنيو والصور بطريقة جذابة.</div><div class="pf"><div class="tgs"><span class="tg">HTML</span><span class="tg">CSS</span><span class="tg">JS</span></div><a href="https://xsabduuh.github.io/Atlas-rep/" target="_blank" rel="noopener noreferrer" class="vb" data-i18n="view">عرض ←</a></div></div></div>
     <div class="pc rv"><div class="pi"><img src="travel-agency.jpg" alt="سفاري" onerror="this.style.display='none';this.parentElement.querySelector('.pi-ph').style.display='flex'"><div class="pi-ph"><div class="pi-ph-ic">✈️</div></div><div class="pi-ov"></div><span class="pt" data-i18n="project5_tag">موقع شركة</span></div><div class="pb"><div class="pn" data-i18n="project5_number">05 — وكالة سفر</div><div class="ph" data-i18n="project5_title">سفاري</div><div class="pd" data-i18n="project5_desc">موقع وكالة سفر يعرض الرحلات والعروض بوضوح.</div><div class="pf"><div class="tgs"><span class="tg">HTML</span><span class="tg">CSS</span><span class="tg">JS</span></div><a href="https://xsabduuh.github.io/Atlas-travel/" target="_blank" rel="noopener noreferrer" class="vb" data-i18n="view">عرض ←</a></div></div></div>
   </div>
