@@ -663,4 +663,120 @@ const translations = {
     faq_a5: 'R: Vous pouvez me contacter via WhatsApp directement depuis le bouton de contact sur le site ou par e-mail.',
     faq_q6: 'Q: Puis-je ajouter des pages supplémentaires plus tard ?',
     faq_a6: 'R: Oui, des pages supplémentaires peuvent être ajoutées ultérieurement moyennant un coût supplémentaire selon la nature du projet.',
-    faq_back
+    faq_back_link: '← Retour à l\'accueil',
+  }
+};
+
+/* ===== 3. النظام اللغوي ===== */
+let currentLang = localStorage.getItem('lang') || 'ar';
+
+function applyLanguage(lang) {
+  const t = translations[lang];
+  if (!t) return;
+  const dir = lang === 'ar' ? 'rtl' : 'ltr';
+  document.documentElement.lang = lang;
+  document.body.dir = dir;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    const value = t[key];
+    if (value !== undefined) {
+      el.innerHTML = value;
+    }
+  });
+  document.querySelectorAll('.lang-opt').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
+  localStorage.setItem('lang', lang);
+  currentLang = lang;
+}
+
+document.querySelectorAll('.lang-opt').forEach(btn => {
+  btn.addEventListener('click', () => applyLanguage(btn.dataset.lang));
+});
+applyLanguage(currentLang);
+
+/* ===== 4. Nav — يصبح مرئياً عند الـ scroll ===== */
+const mainNav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => {
+  mainNav.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
+/* ===== 5. Scroll Reveal ===== */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('on'), i * 60);
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.rv').forEach(el => revealObserver.observe(el));
+
+/* ===== 6. Smooth Scroll ===== */
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+/* ===== 7. أنيميشن دخول بطاقات الخدمات (stagger خفيف) ===== */
+const cardObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const cards = entry.target.querySelectorAll('.srv-card, .why-card, .pc');
+      cards.forEach((card, i) => {
+        card.style.animationDelay = (i * 0.07) + 's';
+        card.classList.add('card-visible');
+      });
+      cardObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.srv-grid, .why-grid, .pg').forEach(grid => {
+  cardObserver.observe(grid);
+});
+
+/* ===== 8. تأكيد واتساب ===== */
+document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp.com"]').forEach(link => {
+  link.addEventListener('click', function(e) {
+    const message = currentLang === 'ar' ? 'هل أنت متأكد من رغبتك في التواصل عبر واتساب؟' :
+                    currentLang === 'fr' ? 'Êtes-vous sûr de vouloir contacter via WhatsApp ?' :
+                    'Are you sure you want to contact via WhatsApp?';
+    if (!confirm(message)) {
+      e.preventDefault();
+    }
+  });
+});
+
+/* ===== 9. تمييز الرابط النشط في الفوتر ===== */
+function highlightActiveFooterLink() {
+  const currentFile = window.location.pathname.split('/').pop();
+  if (!currentFile) return;
+  document.querySelectorAll('.fpol .flink').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href === currentFile) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
+    }
+  });
+}
+highlightActiveFooterLink();
+
+/* ===== 10. تفعيل طيّ بطاقات "لماذا" ===== */
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.why-card').forEach(card => {
+    card.addEventListener('click', function(e) {
+      this.classList.toggle('open');
+    });
+  });
+});
+
+/* منع استعادة موضع التمرير السابق */
+history.scrollRestoration = 'manual';
+/* تمرير الصفحة إلى الأعلى بعد التحميل */
+window.addEventListener('load', function() {
+  window.scrollTo(0, 0);
+});
