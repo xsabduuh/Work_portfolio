@@ -787,9 +787,9 @@ const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
 if (track && prevBtn && nextBtn) {
   prevBtn.addEventListener('click', () => {
-    track.scrollBy({ left: -360, behavior: 'smooth' });
+    track.scrollBy({ left: -380, behavior: 'smooth' });
   });
   nextBtn.addEventListener('click', () => {
-    track.scrollBy({ left: 360, behavior: 'smooth' });
+    track.scrollBy({ left: 380, behavior: 'smooth' });
   });
 }
