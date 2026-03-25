@@ -988,20 +988,32 @@ footer {
   .pi { height: 220px; }
 }
 
-/* ========== Cross-browser fixes ========== */
-.hero-badge,
-.stats,
-.btn-out,
-.btn-phone {
-  -webkit-backdrop-filter: blur(12px);
-  backdrop-filter: blur(12px);
+/* ===== Card stagger animation ===== */
+.srv-card, .why-card, .pc {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.card-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
 }
 
-img {
-  -webkit-user-drag: none;
-  user-select: none;
+/* ===== TABLET ===== */
+@media (min-width: 641px) and (max-width: 899px) {
+  .nav-links { gap: 20px; }
+  .prg { grid-template-columns: 1fr 1fr; }
+  .sec { padding: 56px 32px; }
 }
 
+/* ===== DESKTOP ===== */
+@media (min-width: 900px) {
+  .srv-grid { grid-template-columns: repeat(3, 1fr); }
+  .why-grid { grid-template-columns: repeat(3, 1fr); }
+  .pg { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+}
+
+/* ===== Cross-browser ===== */
 .h1-gold {
   -webkit-background-clip: text;
   background-clip: text;
