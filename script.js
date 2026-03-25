@@ -599,3 +599,10 @@ history.scrollRestoration = ‘manual’;
 window.addEventListener(‘load’, function() {
 window.scrollTo(0, 0);
 });
+
+/* ===== Fallback: إظهار كل .rv بعد 2.5 ثانية ===== */
+setTimeout(function() {
+  document.querySelectorAll('.rv').forEach(function(el) {
+    el.classList.add('on');
+  });
+}, 2500);
