@@ -966,3 +966,44 @@ footer {
   .tech-icons { gap: 7px; }
   .tech-icon  { width: 40px; height: 40px; border-radius: 12px; }
 }
+
+/* ========== TABLET 641px - 899px ========== */
+@media (min-width: 641px) and (max-width: 899px) {
+  .hero { padding: 90px 32px 50px; }
+  .srv-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+  .why-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+  .prg { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .ext-g { grid-template-columns: 1fr 1fr; }
+  .nav-links { gap: 20px; }
+  .nav-links a { font-size: 12px; }
+  .sec { padding: 56px 32px; }
+  .ctab { padding: 0 32px; }
+}
+
+/* ========== DESKTOP ========== */
+@media (min-width: 900px) {
+  .srv-grid { grid-template-columns: repeat(3, 1fr); }
+  .why-grid { grid-template-columns: repeat(3, 1fr); }
+  .pg { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .pi { height: 220px; }
+}
+
+/* ========== Cross-browser fixes ========== */
+.hero-badge,
+.stats,
+.btn-out,
+.btn-phone {
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+img {
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+.h1-gold {
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
